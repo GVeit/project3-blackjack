@@ -29,11 +29,12 @@ $(document).ready(function() {
 
 
 const getMoney = (e) =>{
-    
+    e.preventDefault();
+    console.dir('adding money');
     const fundField = document.querySelector("#credit").value;
     
     const xhr = new XMLHttpRequest();
-    xhr.open("post", "/addFunds");
+    xhr.open("POST", "/addFunds");
     
     xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
     xhr.setRequestHeader('Accept', 'application/json');
@@ -41,9 +42,11 @@ const getMoney = (e) =>{
     xhr.onload = () => handleResponse(xhr);
     
     const formData = `fundField=${fundField}&_csrf=${csrfToken}`;
+    
+    console.dir(formData);
 
     xhr.send(formData);
-    
+    return false;
 };
 
 const handleResponse = (xhr) => {

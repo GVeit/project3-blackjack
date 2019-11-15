@@ -28,11 +28,12 @@ $(document).ready(function () {
 });
 
 var getMoney = function getMoney(e) {
-
+    e.preventDefault();
+    console.dir('adding money');
     var fundField = document.querySelector("#credit").value;
 
     var xhr = new XMLHttpRequest();
-    xhr.open("post", "/addFunds");
+    xhr.open("POST", "/addFunds");
 
     xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
     xhr.setRequestHeader('Accept', 'application/json');
@@ -43,7 +44,10 @@ var getMoney = function getMoney(e) {
 
     var formData = 'fundField=' + fundField + '&_csrf=' + csrfToken;
 
+    console.dir(formData);
+
     xhr.send(formData);
+    return false;
 };
 
 var handleResponse = function handleResponse(xhr) {

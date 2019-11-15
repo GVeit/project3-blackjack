@@ -20,6 +20,8 @@ const addFunds = (req, res) => {
 };
 
 const increaseMoney = (req, res) =>{
+    
+    console.dir('increase');
     //grab the current account from mongo
     Account.AccountModel.findByUsername(req.session.account.username, (err, doc) => {
         let account = doc;
