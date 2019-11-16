@@ -3,6 +3,7 @@
 // BLACKJACK WINDOW
 var userMoney = 0;
 var csrfToken = void 0;
+
 var BlackJackWindow = function BlackJackWindow(props) {
     return React.createElement(
         'div',

@@ -79,6 +79,10 @@ const login = (request, response) => {
   });
 };
 
+const rules = (req, res) => {
+    res.render('rules');
+};
+
 const signup = (request, response) => {
   const req = request;
   const res = response;
@@ -144,6 +148,7 @@ module.exports.logout = logout;
 module.exports.getFunds = getFunds;
 module.exports.addFunds = addFunds;
 module.exports.blackJack = blackJack;
+module.exports.rules = rules;
 module.exports.signupPage = signupPage;
 module.exports.signup = signup;
 module.exports.getToken = getToken;
