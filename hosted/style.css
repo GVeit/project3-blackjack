@@ -104,7 +104,7 @@ nav:nth-child(1) {
     height: 300px;
     width: 350px;
     margin: 0 auto;
-    padding-top: 10px;
+    padding-top: 300px;
     font-size: 1.2em;
 }
 
@@ -135,6 +135,16 @@ nav:nth-child(1) {
     padding: 3px 0px;
     color: white;
     text-decoration: none;
+    
+    
+      background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
 }
 
 .formSubmit:link, .formSubmit:visited, .formSubmit:hover, .formSubmit:active {
@@ -161,7 +171,7 @@ nav:nth-child(1) {
 #domoMessage {
     text-align: center;
     display:none;
-    margin-top: 200px;
+    margin-top: -200px;
     /*
     display:none;
     top: 250px;
