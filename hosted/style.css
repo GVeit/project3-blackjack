@@ -151,6 +151,7 @@ nav:nth-child(1) {
 }
 
 #domoMessage {
+    text-align: center;
     /*
     display:none;
     top: 250px;
