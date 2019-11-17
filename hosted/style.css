@@ -8,6 +8,12 @@ html, body {
     background-color: #08131b
 }
 
+body 
+{
+    font-family: 'Muli', sans-serif;
+    font-family: 'Montserrat', sans-serif;
+}
+
 #logo {
     width: 139px;
     float: left;
@@ -42,6 +48,7 @@ nav:nth-child(1) {
     border-radius: 4px;
     background-color: #041e35;
     transition: background-color 0.4s ease;
+    font-family: Muli;
 }
 
 .navlink a:hover {
