@@ -14,8 +14,8 @@ const router = (app) => {
   app.get('/getFunds', controllers.Account.getFunds);
   app.get('/blackJack', controllers.Account.blackJack);
   app.get('/rules', controllers.Account.rules);
-  app.get('/maker', controllers.Domo.makerPage);
-  app.post('/maker', controllers.Domo.make);
+  //app.get('/maker', controllers.Domo.makerPage);
+  //app.post('/maker', controllers.Domo.make);
   app.get('/', controllers.Account.loginPage);
 };
 
