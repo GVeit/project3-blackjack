@@ -17,7 +17,8 @@
     <style>
 
         #game-board{
-            background-color:#11dc90;
+            background: rgb(67,206,162);
+            background: linear-gradient(212deg, rgba(67,206,162,1) 0%, rgba(10,185,92,1) 100%);
             height: 390px;
             border-radius: 14px;
             margin: 30px;
@@ -66,7 +67,7 @@
 
         .wrapperFunctions{
             background-color:#041e35;
-            height: 125px;
+            height: 150px;
             border-radius: 14px;
             text-align: center;
             padding: 20px;
@@ -87,6 +88,8 @@
         #player{
             font-size: 40px;
             color: #00f074;
+            font-family: montserrat;
+            padding: 10px;
         }
 
         #new-game-button {
@@ -130,16 +133,21 @@
             text-align: center;
             font-size: 20px;
         }
+        
+        #message-board{
+            color:white;
+            text-align: center;
+        }
 
 
 </style>
     
 <body>
   <nav><a href="/login"><img id="logo" src="/assets/img/bjIcon.png" alt="face logo"/></a>
-    <div class="navlink"><a href="/blackJack">Blackjack</a></div>
-    <div class="navlink"><a href="/rules">Rules</a></div>
-    <div class="navlink"><a href="/addFunds">Add Funds</a></div>
-    <div class="navlink"><a href="/logout">Log out</a></div>    
+    <div class="navlink"><a href="/blackJack">BLACKJACK</a></div>
+    <div class="navlink"><a href="/rules">RULES</a></div>
+    <div class="navlink"><a href="/addFunds">ADD FUNDS</a></div>
+    <div class="navlink"><a href="/logout">LOG OUT</a></div>    
   </nav>
     
     
@@ -167,7 +175,7 @@
                 <br>
 
         </div>
-
+        <h2 id="message-board"></h2>
         <div class="wrapperFunctions">
                 <input type='button' id='new-game-button' value='New Game' onclick='newGame();'/>
                 <input type='button' id='hit-button' value='Hit' onclick='hit();'/>
@@ -175,7 +183,7 @@
 
                 <div class="wrapperBet">
                         <div id=player>
-                            Your Money: $0
+                            Balance: $0
                         </div>
                         Bet: 
                         <input type='number' id='bet' value='10' min='1'/>
@@ -184,8 +192,6 @@
 
         <br>
 
-
-        <h2 id="message-board"></h2>
 
     
     

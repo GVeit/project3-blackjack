@@ -4,9 +4,10 @@ html, body {
     margin: 0;
     padding: 0;
     overflow-x: hidden;
-    
-    background: rgb(20,30,48);
-    background: linear-gradient(90deg, rgba(20,30,48,1) 0%, rgba(36,59,85,1) 100%);
+
+
+    background: rgb(43,88,118);
+    background: linear-gradient(90deg, rgba(43,88,118,1) 0%, rgba(78,67,118,1) 100%); 
 }
 
 body 
@@ -18,8 +19,8 @@ body
 #logo {
     width: 139px;
     float: left;
-    padding-left: 10px;
-    height: 55px;
+    height: 100px;
+    margin-top: -45px;
 }
 
 nav {
