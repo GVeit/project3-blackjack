@@ -9,13 +9,14 @@ const BlackJackWindow = (props) => {
 };
 */
 // BLACKJACK WINDOW
+/*
 const createBlackJackWindow = (csrf) => {
     ReactDOM.render(
         <BlackJackWindow csrf={csrf} />,
         document.querySelector("#game")
     );
 };
-
+*/
 const getToken = () => {
     sendAjax('GET', '/getToken', null, (result) => {
       csrfToken = result.csrfToken;
