@@ -43,7 +43,9 @@ var getMoney = function getMoney(e) {
     };
 
     var formData = 'fundField=' + fundField + '&_csrf=' + csrfToken;
-
+    
+    document.getElementById("credit").value = "0";
+    
     console.dir(formData);
 
     xhr.send(formData);
@@ -54,15 +56,11 @@ var handleResponse = function handleResponse(xhr) {
     console.dir(xhr.response);
 };
 
-var clearValue = function clearValue(e) {
-    
-    document.getElementById("credit").value = " 10 ";
-}
 
 var setup = function setup(csrf) {
 
     console.dir(csrfToken);
-    document.getElementById("confirm-purchase").addEventListener("click", getMoney, clearValue);
+    document.getElementById("confirm-purchase").addEventListener("click", getMoney);
 
     createaddFundsWindow(csrf);
 };
