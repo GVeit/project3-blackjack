@@ -28,7 +28,7 @@ var getMoney = function getMoney() {
     sendAjax('Get', '/getFunds', null, function (result) {
         userMoney = result.funds;
         player.money = userMoney;
-        document.getElementById("player").innerHTML = "Your money: $" + userMoney;
+        document.getElementById("player").innerHTML = "Balance: $" + userMoney;
     });
 };
 
