@@ -58,7 +58,7 @@ var setup = function setup(csrf) {
 
     console.dir(csrfToken);
     document.getElementById("confirm-purchase").addEventListener("click", getMoney);
-    document.getElementById("credit").value = "";
+    document.getElementById("credit").value = " 10 ";
 
     createaddFundsWindow(csrf);
 };
