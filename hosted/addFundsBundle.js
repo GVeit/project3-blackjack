@@ -43,8 +43,6 @@ var getMoney = function getMoney(e) {
 
     var formData = 'fundField=' + fundField + '&_csrf=' + csrfToken;
     
-    document.getElementById("credit").value = "0";
-    
     console.dir(formData);
 
     xhr.send(formData);

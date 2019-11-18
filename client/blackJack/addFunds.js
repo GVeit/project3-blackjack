@@ -44,6 +44,8 @@ const getMoney = (e) =>{
     const formData = `fundField=${fundField}&_csrf=${csrfToken}`;
     
     console.dir(formData);
+    
+    document.querySelector("#credit").value = "";
 
     xhr.send(formData);
     return false;
