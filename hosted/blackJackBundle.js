@@ -147,7 +147,7 @@ function shuffle() {
 function bet(won) {
 
     var playerBet = document.getElementById("bet").valueAsNumber;
-
+    
     if (won === true) {
 
         player.money += playerBet;
@@ -183,42 +183,42 @@ function endGame() {
     if (player.score === 21) {
         document.getElementById("message-board").innerHTML = "You win! You got blackjack.";
         bet(true);
-        document.getElementById("player").innerHTML = "Your money: $" + player.money;
+        document.getElementById("player").innerHTML = "Balance: $" + player.money;
         restartGame();
     }
     // if player went over 21, player would lose
     if (player.score > 21) {
         document.getElementById("message-board").innerHTML = "You went over 21! The dealer wins";
         bet(false);
-        document.getElementById("player").innerHTML = "Your money: $" + player.money;
+        document.getElementById("player").innerHTML = "Balance: $" + player.money;
         restartGame();
     }
     // if dealer has exact 21, it would win 
     if (dealer.score === 21) {
         document.getElementById("message-board").innerHTML = "You lost. Dealer got blackjack";
         bet(false);
-        document.getElementById("player").innerHTML = "Your money: $" + player.money;
+        document.getElementById("player").innerHTML = "Balance: $" + player.money;
         restartGame();
     }
     // if dealer went over 21, dealer would lose
     if (dealer.score > 21) {
         document.getElementById("message-board").innerHTML = "Dealer went over 21! You win!";
         bet(true);
-        document.getElementById("player").innerHTML = "Your money: $" + player.money;
+        document.getElementById("player").innerHTML = "Balance: $" + player.money;
         restartGame();
     }
     // if dealer has 17 scores and still less than player's current scores, it would lose
     if (dealer.score >= 17 && player.score > dealer.score && player.score < 21) {
         document.getElementById("message-board").innerHTML = "You win! You beat the dealer.";
         bet(true);
-        document.getElementById("player").innerHTML = "Your money: $" + player.money;
+        document.getElementById("player").innerHTML = "Balance: $" + player.money;
         restartGame();
     }
     // if dealer has 17 scores and greater than player's current scores, it would win
     if (dealer.score >= 17 && player.score < dealer.score && dealer.score < 21) {
         document.getElementById("message-board").innerHTML = "You lost. Dealer had the higher score.";
         bet(false);
-        document.getElementById("player").innerHTML = "Your money: $" + player.money;
+        document.getElementById("player").innerHTML = "Balance: $" + player.money;
         restartGame();
     }
     // if both player and dealer have same scores, it would be tie
@@ -271,15 +271,22 @@ function newGame() {
     // reset everything
     dealerHand = '';
     playerHand = '';
+    
+    var playerBet = document.getElementById("bet").valueAsNumber;
+    
+    if (playerBet > player.money) {
+        document.getElementById("message-board").innerHTML = "You don't have sufficient fund to place a bet";
+    } else {
+        document.getElementById("new-game-button").disabled = true;
+        document.getElementById("hit-button").disabled = false;
+        document.getElementById("stand-button").disabled = false;
+        document.getElementById("message-board").innerHTML = "";
+        hit();
+        hit();
+        dealerDraw();
+        endGame();
+    }
 
-    document.getElementById("new-game-button").disabled = true;
-    document.getElementById("hit-button").disabled = false;
-    document.getElementById("stand-button").disabled = false;
-    document.getElementById("message-board").innerHTML = "";
-    hit();
-    hit();
-    dealerDraw();
-    endGame();
 }
 
 function hit() {
