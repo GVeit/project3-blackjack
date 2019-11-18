@@ -7,7 +7,6 @@ var addFundsWindow = function addFundsWindow(props) {
     return React.createElement(
         'div',
         null,
-        'It works!'
     );
 };
 

@@ -67,6 +67,9 @@ var dealer = {
 };
 var dealerHand = '';
 
+
+var playerBetChecker = 0;
+
 //document.getElementById("player").innerHTML = "Your money: $" + player.money;
 document.getElementById("hit-button").disabled = true;
 document.getElementById("stand-button").disabled = true;
@@ -162,6 +165,7 @@ function bet(won) {
 // reset the game
 function restartGame() {
 
+    playerBetChecker = document.getElementById("bet").valueAsNumber;
     // restart everything 
     totalCardsPulled = 0;
     player.cards = [];
@@ -169,9 +173,7 @@ function restartGame() {
     player.score = 0;
     dealer.score = 0;
     
-    var playerBet = document.getElementById("bet").valueAsNumber;
-    
-    if (playerBet > player.money) {
+    if (playerBetChecker > player.money) {
         
         document.getElementById("message-board").innerHTML = "You don't have sufficient fund to place a bet";
         

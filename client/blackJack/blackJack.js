@@ -1,12 +1,13 @@
 // BLACKJACK WINDOW
 var userMoney = 0;
 let csrfToken;
+/*
 const BlackJackWindow = (props) => {
     return (
         <div>It works!</div>
     );
 };
-
+*/
 // BLACKJACK WINDOW
 const createBlackJackWindow = (csrf) => {
     ReactDOM.render(
@@ -26,7 +27,7 @@ const getMoney = () =>{
     sendAjax('Get', '/getFunds', null, (result) => {
         userMoney = result.funds;
         player.money = userMoney;
-        document.getElementById("player").innerHTML= "Your money: $" + userMoney;
+        document.getElementById("player").innerHTML= "Balance: $" + userMoney;
     });
 }
 
