@@ -183,7 +183,7 @@ function restartGame() {
     if (playerBet > player.money) {
         document.getElementById("message-board").innerHTML = "You do not have sufficient fund to make a bet";
     } else {
-        document.getElementById("bet").disabled = true;        
+        //document.getElementById("bet").disabled = true;        
         // restart everything 
         totalCardsPulled = 0;
         player.cards = [];

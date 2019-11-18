@@ -211,9 +211,9 @@ nav:nth-child(1) {
 }
 
 #errorMessage {
-    color:red;
-    /*
+    color:#ff8503;
     font-size: 1.2em;
+    /*
     font-weight: bold;
     color: red;
     font-style: italic;
