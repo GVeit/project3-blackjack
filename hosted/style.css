@@ -56,7 +56,6 @@ nav:nth-child(1) {
 .navlink a:hover {
     transition: background-color 0.2s ease;
     background-color: #66bdff;
-    padding-top: 20
 }
 
 .domoForm {
