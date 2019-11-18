@@ -4,7 +4,7 @@ html, body {
     margin: 0;
     padding: 0;
     overflow-x: hidden;
-
+    min-width: 726px;
 
     background: rgb(43,88,118);
     background: linear-gradient(90deg, rgba(43,88,118,1) 0%, rgba(78,67,118,1) 100%); 

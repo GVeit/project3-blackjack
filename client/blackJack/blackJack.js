@@ -177,20 +177,27 @@ function bet(won) {
 
 // reset the game
 function restartGame() {
+    
+    var playerBet = document.getElementById("bet").valueAsNumber;
+    
+    if (playerBet > player.money) {
+        document.getElementById("message-board").innerHTML = "You do not have sufficient fund to make a bet";
+    } else {
+        document.getElementById("bet").disabled = true;        
+        // restart everything 
+        totalCardsPulled = 0;
+        player.cards = [];
+        dealer.cards = [];
+        player.score = 0;
+        dealer.score = 0;
 
-    // restart everything 
-    totalCardsPulled = 0;
-    player.cards = [];
-    dealer.cards = [];
-    player.score = 0;
-    dealer.score = 0;
+        beginGame();
+        shuffle();
 
-    beginGame();
-    shuffle();
-
-    document.getElementById("hit-button").disabled = true;
-    document.getElementById("stand-button").disabled = true;
-    document.getElementById("new-game-button").disabled = false;
+        document.getElementById("hit-button").disabled = true;
+        document.getElementById("stand-button").disabled = true;
+        document.getElementById("new-game-button").disabled = false;
+    }
 }
 
 function endGame() {
@@ -243,6 +250,7 @@ function endGame() {
     }
     if (player.money <= 0) {
         document.getElementById("new-game-button").disabled = true;
+        document.getElementById("bet").disabled = true;
         document.getElementById("hit-button").disabled = true;
         document.getElementById("stand-button").disabled = true;
         document.getElementById("message-board").innerHTML = "You lost!" + "<br>" + "You are out of money";
