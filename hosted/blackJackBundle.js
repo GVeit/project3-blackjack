@@ -169,13 +169,23 @@ function restartGame() {
     dealer.cards = [];
     player.score = 0;
     dealer.score = 0;
+    
+    var playerBet = document.getElementById("bet").valueAsNumber;
+    
+    if (playerBet > player.money) {
+        var playerBet = document.getElementById("bet").valueAsNumber;
+    
+    if (playerBet > player.money) {
+        document.getElementById("message-board").innerHTML = "You don't have sufficient fund to place a bet";
+    } else {
+        beginGame();
+        shuffle();
 
-    beginGame();
-    shuffle();
+        document.getElementById("hit-button").disabled = true;
+        document.getElementById("stand-button").disabled = true;
+        document.getElementById("new-game-button").disabled = false;
+    }
 
-    document.getElementById("hit-button").disabled = true;
-    document.getElementById("stand-button").disabled = true;
-    document.getElementById("new-game-button").disabled = false;
 }
 
 function endGame() {
@@ -272,11 +282,6 @@ function newGame() {
     dealerHand = '';
     playerHand = '';
     
-    var playerBet = document.getElementById("bet").valueAsNumber;
-    
-    if (playerBet > player.money) {
-        document.getElementById("message-board").innerHTML = "You don't have sufficient fund to place a bet";
-    } else {
         document.getElementById("new-game-button").disabled = true;
         document.getElementById("hit-button").disabled = false;
         document.getElementById("stand-button").disabled = false;
@@ -285,7 +290,7 @@ function newGame() {
         hit();
         dealerDraw();
         endGame();
-    }
+    
 
 }
 
