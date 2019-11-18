@@ -8,7 +8,6 @@ var BlackJackWindow = function BlackJackWindow(props) {
     return React.createElement(
         'div',
         null,
-        'It works!'
     );
 };
 
@@ -173,11 +172,11 @@ function restartGame() {
     var playerBet = document.getElementById("bet").valueAsNumber;
     
     if (playerBet > player.money) {
-        var playerBet = document.getElementById("bet").valueAsNumber;
-    
-    if (playerBet > player.money) {
+        
         document.getElementById("message-board").innerHTML = "You don't have sufficient fund to place a bet";
-    } else {
+        
+    } else if (playerBet <= player.money){
+        
         beginGame();
         shuffle();
 
