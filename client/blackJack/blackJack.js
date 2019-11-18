@@ -48,7 +48,7 @@ $(document).ready(function() {
 
 const setup = function(csrf) {
     
-    createBlackJackWindow(csrf);
+    //createBlackJackWindow(csrf);
     getMoney();
 
 };
