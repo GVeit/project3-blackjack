@@ -54,14 +54,20 @@ var handleResponse = function handleResponse(xhr) {
     console.dir(xhr.response);
 };
 
+var clearValue = function clearValue(e) {
+    
+    document.getElementById("credit").value = " 10 ";
+}
+
 var setup = function setup(csrf) {
 
     console.dir(csrfToken);
-    document.getElementById("confirm-purchase").addEventListener("click", getMoney);
-    document.getElementById("credit").value = " 10 ";
+    document.getElementById("confirm-purchase").addEventListener("click", getMoney, clearValue);
 
     createaddFundsWindow(csrf);
 };
+
+
 "use strict";
 
 var handleError = function handleError(message) {
