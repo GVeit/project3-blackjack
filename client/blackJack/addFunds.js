@@ -46,6 +46,7 @@ const getMoney = (e) =>{
     console.dir(formData);
     
     document.querySelector("#credit").value = "";
+    document.getElementById("addedFund").innerHTML = "Successfully added to balance";
 
     xhr.send(formData);
     return false;
