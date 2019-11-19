@@ -1,3 +1,4 @@
+/*
 const handleDomo = (e) => {
     e.preventDefault();
     
@@ -92,3 +93,5 @@ const getToken = () => {
 $(document).ready(function() {
     getToken();
 });
+
+*/
