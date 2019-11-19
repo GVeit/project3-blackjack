@@ -328,7 +328,7 @@ function newGame() {
     }
 }
 
-function startHit() {
+function hit() {
     player.cards.push(deckArray[totalCardsPulled]);
     player.score = getCard(player.cards);
     //document.getElementById("player-cards").innerHTML = "Player Cards: " + JSON.stringify(player.cards);
