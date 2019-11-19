@@ -301,7 +301,6 @@ function newGame() {
     if (playerBet > player.money) {
         document.getElementById("message-board").innerHTML = "You do not have sufficient fund to make a bet";
     } else {
-        document.getElementById("bet").disabled = true;
         // reset everything
         dealerHand = '';
         playerHand = '';
@@ -313,6 +312,7 @@ function newGame() {
         hit();
         hit();
         dealerDraw();
+        document.getElementById("bet").disabled = true;
         endGame();
     }
 }
