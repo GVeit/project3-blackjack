@@ -1,4 +1,4 @@
-/*
+
 "use strict";
 
 var handleDomo = function handleDomo(e) {
@@ -136,4 +136,3 @@ var sendAjax = function sendAjax(type, action, data, success) {
         }
     });
 };
-*/
