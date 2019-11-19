@@ -9,7 +9,7 @@
   "main": "./server/app.js",
   "scripts": {
     "buildLoginBundle": "babel ./client/login ./client/helper --presets react --out-file ./hosted/loginBundle.js",
-    "buildAppBundle": "babel ./client ./client/helper --presets react --out-file ./hosted/loginBundle.js",
+    "buildAppBundle": "babel ./client/app ./client/helper --presets react --out-file ./hosted/bundle.js",
     "buildBlackJackBundle": "babel ./client/blackJack/blackJack.js ./client/helper --presets react --out-file ./hosted/blackJackBundle.js",
     "buildFundsBundle": "babel ./client/blackJack/addFunds.js ./client/helper --presets react --out-file ./hosted/addFundsBundle.js",
     "nodemon": "nodemon --watch ./server ./server/app.js",
@@ -18,7 +18,7 @@
     "test": "echo \"Tests complete\"",
     "build": "npm run buildLoginBundle && npm run buildAppBundle && npm run buildBlackJackBundle && npm run buildFundsBundle",
     "watchLoginBundle": "babel --watch ./client/login ./client/helper --presets react --out-file ./hosted/loginBundle.js",
-    "watchAppBundle": "babel --watch ./client/ ./client/helper --presets react --out-file ./hosted/bundle.js"
+    "watchAppBundle": "babel --watch ./client/app ./client/helper --presets react --out-file ./hosted/bundle.js"
   },
   "keywords": [
     "Node",
