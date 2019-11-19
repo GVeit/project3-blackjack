@@ -178,11 +178,7 @@ function bet(won) {
 // reset the game
 function restartGame() {
     
-    var playerBet = document.getElementById("bet").valueAsNumber;
-    
-    if (playerBet > player.money) {
-        document.getElementById("message-board").innerHTML = "You do not have sufficient fund to make a bet";
-    } else {
+
         //document.getElementById("bet").disabled = true;        
         // restart everything 
         totalCardsPulled = 0;
@@ -197,7 +193,7 @@ function restartGame() {
         document.getElementById("hit-button").disabled = true;
         document.getElementById("stand-button").disabled = true;
         document.getElementById("new-game-button").disabled = false;
-    }
+
 }
 
 function endGame() {
@@ -298,6 +294,13 @@ function dealerDraw() {
 
 
 function newGame() {
+    
+    
+    var playerBet = document.getElementById("bet").valueAsNumber;
+    
+    if (playerBet > player.money) {
+        document.getElementById("message-board").innerHTML = "You do not have sufficient fund to make a bet";
+    } else {
 
     // reset everything
     dealerHand = '';
