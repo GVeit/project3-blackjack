@@ -189,7 +189,8 @@ function restartGame() {
 
         beginGame();
         shuffle();
-
+    
+        document.getElementById("bet").disabled = false;
         document.getElementById("hit-button").disabled = true;
         document.getElementById("stand-button").disabled = true;
         document.getElementById("new-game-button").disabled = false;
@@ -205,7 +206,7 @@ function endGame() {
         document.getElementById("message-board").innerHTML = "You do not have sufficient fund to make a bet";
     } else {
         
-        document.getElementById("bet").disabled = true
+        document.getElementById("bet").disabled = true;
 
 
         if (player.score === 21) {
