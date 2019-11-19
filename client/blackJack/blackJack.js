@@ -302,18 +302,19 @@ function newGame() {
         document.getElementById("message-board").innerHTML = "You do not have sufficient fund to make a bet";
     } else {
 
-    // reset everything
-    dealerHand = '';
-    playerHand = '';
+        // reset everything
+        dealerHand = '';
+        playerHand = '';
 
-    document.getElementById("new-game-button").disabled = true;
-    document.getElementById("hit-button").disabled = false;
-    document.getElementById("stand-button").disabled = false;
-    document.getElementById("message-board").innerHTML = "";
-    hit();
-    hit();
-    dealerDraw();
-    endGame();
+        document.getElementById("new-game-button").disabled = true;
+        document.getElementById("hit-button").disabled = false;
+        document.getElementById("stand-button").disabled = false;
+        document.getElementById("message-board").innerHTML = "";
+        hit();
+        hit();
+        dealerDraw();
+        endGame();
+    }
 }
 
 function hit() {
