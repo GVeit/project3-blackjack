@@ -312,7 +312,6 @@ function newGame() {
         hit();
         hit();
         dealerDraw();
-        document.getElementById("bet").disabled = true;
         endGame();
     }
 }
@@ -354,6 +353,7 @@ function hit() {
     totalCardsPulled += 1;
     if (totalCardsPulled > 2) {
         endGame();
+        document.getElementById("bet").disabled = true;
     }
 
 }
