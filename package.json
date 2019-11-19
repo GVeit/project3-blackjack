@@ -9,9 +9,7 @@
   "main": "./server/app.js",
   "scripts": {
     "buildLoginBundle": "babel ./client/login ./client/helper --presets react --out-file ./hosted/loginBundle.js",
-      /*
-    "buildAppBundle": "babel ./client/app ./client/helper --presets react --out-file ./hosted/bundle.js",
-    */
+    "buildAppBundle": "babel ./client/app ./client/helper --presets react --out-file ./hosted/loginBundle.js",
     "buildBlackJackBundle": "babel ./client/blackJack/blackJack.js ./client/helper --presets react --out-file ./hosted/blackJackBundle.js",
     "buildFundsBundle": "babel ./client/blackJack/addFunds.js ./client/helper --presets react --out-file ./hosted/addFundsBundle.js",
     "nodemon": "nodemon --watch ./server ./server/app.js",
