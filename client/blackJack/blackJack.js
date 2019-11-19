@@ -350,13 +350,14 @@ function hit() {
     document.getElementById("player-score").innerHTML = "Player Score: " + player.score;
     
 
-    totalCardsPulled += 1;
+
     
     var playerBet = document.getElementById("bet").valueAsNumber;
 
     if (playerBet > player.money) {
         document.getElementById("message-board").innerHTML = "You do not have sufficient fund to make a bet";
     } else {
+        totalCardsPulled += 1;
         if (totalCardsPulled > 2) {
             endGame();
             document.getElementById("bet").disabled = true
