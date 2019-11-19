@@ -352,8 +352,15 @@ function hit() {
 
     totalCardsPulled += 1;
     if (totalCardsPulled > 2) {
-        endGame();
-        document.getElementById("bet").disabled = true;
+        
+        var playerBet = document.getElementById("bet").valueAsNumber;
+    
+        if (playerBet > player.money) {
+            document.getElementById("message-board").innerHTML = "You do not have sufficient fund to make a bet";
+        } else {
+            endGame();
+            document.getElementById("bet").disabled = true
+        }
     }
 
 }
