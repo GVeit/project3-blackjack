@@ -198,58 +198,70 @@ function restartGame() {
 
 function endGame() {
     // if player has exact 21, player would auto win the game
-    if (player.score === 21) {
-        document.getElementById("message-board").innerHTML = "You win! You got blackjack.";
-        bet(true);
-        document.getElementById("player").innerHTML = "Your money: $" + player.money;
-        restartGame();
-    }
-    // if player went over 21, player would lose
-    if (player.score > 21) {
-        document.getElementById("message-board").innerHTML = "You went over 21! The dealer wins";
-        bet(false);
-        document.getElementById("player").innerHTML = "Your money: $" + player.money;
-        restartGame();
-    }
-    // if dealer has exact 21, it would win 
-    if (dealer.score === 21) {
-        document.getElementById("message-board").innerHTML = "You lost. Dealer got blackjack";
-        bet(false);
-        document.getElementById("player").innerHTML = "Your money: $" + player.money;
-        restartGame();
-    }
-    // if dealer went over 21, dealer would lose
-    if (dealer.score > 21) {
-        document.getElementById("message-board").innerHTML = "Dealer went over 21! You win!";
-        bet(true);
-        document.getElementById("player").innerHTML = "Your money: $" + player.money;
-        restartGame();
-    }
-    // if dealer has 17 scores and still less than player's current scores, it would lose
-    if (dealer.score >= 17 && player.score > dealer.score && player.score < 21) {
-        document.getElementById("message-board").innerHTML = "You win! You beat the dealer.";
-        bet(true);
-        document.getElementById("player").innerHTML = "Your money: $" + player.money;
-        restartGame();
-    }
-    // if dealer has 17 scores and greater than player's current scores, it would win
-    if (dealer.score >= 17 && player.score < dealer.score && dealer.score < 21) {
-        document.getElementById("message-board").innerHTML = "You lost. Dealer had the higher score.";
-        bet(false);
-        document.getElementById("player").innerHTML = "Your money: $" + player.money;
-        restartGame();
-    }
-    // if both player and dealer have same scores, it would be tie
-    if (dealer.score >= 17 && player.score === dealer.score && dealer.score < 21) {
-        document.getElementById("message-board").innerHTML = "You tied! ";
-        restartGame();
-    }
-    if (player.money <= 0) {
-        document.getElementById("new-game-button").disabled = true;
-        document.getElementById("bet").disabled = true;
-        document.getElementById("hit-button").disabled = true;
-        document.getElementById("stand-button").disabled = true;
-        document.getElementById("message-board").innerHTML = "You lost!" + "<br>" + "You are out of money";
+    
+    var playerBet = document.getElementById("bet").valueAsNumber;
+
+    if (playerBet > player.money) {
+        document.getElementById("message-board").innerHTML = "You do not have sufficient fund to make a bet";
+    } else {
+        
+        document.getElementById("bet").disabled = true
+
+
+        if (player.score === 21) {
+            document.getElementById("message-board").innerHTML = "You win! You got blackjack.";
+            bet(true);
+            document.getElementById("player").innerHTML = "Your money: $" + player.money;
+            restartGame();
+        }
+        // if player went over 21, player would lose
+        if (player.score > 21) {
+            document.getElementById("message-board").innerHTML = "You went over 21! The dealer wins";
+            bet(false);
+            document.getElementById("player").innerHTML = "Your money: $" + player.money;
+            restartGame();
+        }
+        // if dealer has exact 21, it would win 
+        if (dealer.score === 21) {
+            document.getElementById("message-board").innerHTML = "You lost. Dealer got blackjack";
+            bet(false);
+            document.getElementById("player").innerHTML = "Your money: $" + player.money;
+            restartGame();
+        }
+        // if dealer went over 21, dealer would lose
+        if (dealer.score > 21) {
+            document.getElementById("message-board").innerHTML = "Dealer went over 21! You win!";
+            bet(true);
+            document.getElementById("player").innerHTML = "Your money: $" + player.money;
+            restartGame();
+        }
+        // if dealer has 17 scores and still less than player's current scores, it would lose
+        if (dealer.score >= 17 && player.score > dealer.score && player.score < 21) {
+            document.getElementById("message-board").innerHTML = "You win! You beat the dealer.";
+            bet(true);
+            document.getElementById("player").innerHTML = "Your money: $" + player.money;
+            restartGame();
+        }
+        // if dealer has 17 scores and greater than player's current scores, it would win
+        if (dealer.score >= 17 && player.score < dealer.score && dealer.score < 21) {
+            document.getElementById("message-board").innerHTML = "You lost. Dealer had the higher score.";
+            bet(false);
+            document.getElementById("player").innerHTML = "Your money: $" + player.money;
+            restartGame();
+        }
+        // if both player and dealer have same scores, it would be tie
+        if (dealer.score >= 17 && player.score === dealer.score && dealer.score < 21) {
+            document.getElementById("message-board").innerHTML = "You tied! ";
+            restartGame();
+        }
+        if (player.money <= 0) {
+            document.getElementById("new-game-button").disabled = true;
+            document.getElementById("bet").disabled = true;
+            document.getElementById("hit-button").disabled = true;
+            document.getElementById("stand-button").disabled = true;
+            document.getElementById("message-board").innerHTML = "You lost!" + "<br>" + "You are out of money";
+        }
+        
     }
 
 }
@@ -316,7 +328,7 @@ function newGame() {
     }
 }
 
-function hit() {
+function startHit() {
     player.cards.push(deckArray[totalCardsPulled]);
     player.score = getCard(player.cards);
     //document.getElementById("player-cards").innerHTML = "Player Cards: " + JSON.stringify(player.cards);
