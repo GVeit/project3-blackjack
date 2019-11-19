@@ -351,15 +351,16 @@ function hit() {
     
 
     totalCardsPulled += 1;
-    if (totalCardsPulled > 2) {
-        
-        var playerBet = document.getElementById("bet").valueAsNumber;
     
-        if (playerBet > player.money) {
-            document.getElementById("message-board").innerHTML = "You do not have sufficient fund to make a bet";
-        } else {
+    var playerBet = document.getElementById("bet").valueAsNumber;
+
+    if (playerBet > player.money) {
+        document.getElementById("message-board").innerHTML = "You do not have sufficient fund to make a bet";
+    } else {
+        if (totalCardsPulled > 2) {
             endGame();
             document.getElementById("bet").disabled = true
+
         }
     }
 
