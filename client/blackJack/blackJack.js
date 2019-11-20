@@ -53,6 +53,7 @@ const createBlackJackWindow = (csrf) => {
     //document.getElementById("player").innerHTML = "Your money: $" + player.money;
 document.getElementById("hit-button").disabled = true;
 document.getElementById("stand-button").disabled = true;
+    getMoney();
 };
 
 /* =+=+=+=+=+=+=+=+=+=+=+= */
@@ -89,7 +90,6 @@ $(document).ready(function() {
 const setup = function(csrf) {
     
     //createBlackJackWindow(csrf);
-    getMoney();
 
 };
 
