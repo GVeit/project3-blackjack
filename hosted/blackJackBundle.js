@@ -32,9 +32,9 @@ var getMoney = function getMoney() {
 };
 
 var sendMoney = function sendMoney(playerBet) {
-    console.dir(playerBet);
+    //console.dir(playerBet);
     sendAjax('POST', '/addFunds', { fundField: playerBet, _csrf: csrfToken }, function (result) {
-        console.dir(result);
+        //console.dir(result);
     });
 };
 
@@ -257,16 +257,16 @@ function dealerDraw() {
 
     if (suit == 'hearts') {
         icon = '&hearts;';
-        console.log("&hearts" + valueOfCard);
+        //console.log("&hearts" + valueOfCard);
     } else if (suit == 'spades') {
         icon = '&spades;';
-        console.log("&spades" + valueOfCard);
+        //console.log("&spades" + valueOfCard);
     } else if (suit == 'diamonds') {
         icon = '&diams;';
-        console.log("Diamonds" + valueOfCard);
+        //console.log("Diamonds" + valueOfCard);
     } else {
         icon = '&clubs;';
-        console.log("Clubs" + valueOfCard);
+        //console.log("Clubs" + valueOfCard);
     }
     document.getElementById("dealer-cards").innerHTML = dealerHand + '<div>' + valueOfCard + '<br/>' + icon + '</div>';
     dealerHand = dealerHand + '<div>' + valueOfCard + '<br/>' + icon + '</div>';
@@ -306,16 +306,16 @@ function hit() {
 
     if (suit == 'hearts') {
         icon = '&hearts;';
-        console.log("Hearts" + valueOfCard);
+        //console.log("Hearts" + valueOfCard);
     } else if (suit == 'spades') {
         icon = '&spades;';
-        console.log("Spades" + valueOfCard);
+        //console.log("Spades" + valueOfCard);
     } else if (suit == 'diamonds') {
         icon = '&diams;';
-        console.log("Diamonds" + valueOfCard);
+        //console.log("Diamonds" + valueOfCard);
     } else {
         icon = '&clubs;';
-        console.log("Clubs" + valueOfCard);
+        //console.log("Clubs" + valueOfCard);
     }
 
     document.getElementById("player-cards").innerHTML = playerHand + '<div>' + valueOfCard + '<br/>' + icon + '</div>';

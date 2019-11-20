@@ -28,7 +28,7 @@ $(document).ready(function () {
 
 var getMoney = function getMoney(e) {
     e.preventDefault();
-    console.dir('adding money');
+    //console.dir('adding money');
     var fundField = document.querySelector("#credit").value;
 
     var xhr = new XMLHttpRequest();
@@ -43,20 +43,20 @@ var getMoney = function getMoney(e) {
 
     var formData = 'fundField=' + fundField + '&_csrf=' + csrfToken;
     
-    console.dir(formData);
+    //console.dir(formData);
 
     xhr.send(formData);
     return false;
 };
 
 var handleResponse = function handleResponse(xhr) {
-    console.dir(xhr.response);
+    //console.dir(xhr.response);
 };
 
 
 var setup = function setup(csrf) {
 
-    console.dir(csrfToken);
+    //console.dir(csrfToken);
     document.getElementById("confirm-purchase").addEventListener("click", getMoney);
 
     createaddFundsWindow(csrf);
