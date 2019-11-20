@@ -1,1 +1,1 @@
-ErrorDocument 404 /notfound.handlebars
+ErrorDocument 404 /notfound.html
