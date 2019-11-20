@@ -32,7 +32,7 @@ const BlackJackWindow = (props) => {
                 <input type='button' id='stand-button' value='Stand' onclick='stand();'/>
 
                 <div class="wrapperBet">
-                        <div id=player>
+                        <div id="player">
                             Balance: $0
                         </div>
                         Bet: 
