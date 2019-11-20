@@ -3,7 +3,7 @@ var userMoney = 0;
 let csrfToken;
 
 const BlackJackWindow = (props) => {
-    return (>
+    return (
             
         <div id="game-Wrapper">
         <div id="game-board">
