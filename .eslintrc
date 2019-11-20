@@ -4,9 +4,7 @@
     "no-underscore-dangle" : "off",
 	"no-plusplus": "off",
     "no-console": "off",
-    "no-unused-vars" : 0
-  }
-  {
+    "no-unused-vars" : 0,
     "no-shadow": ["error", { "builtinGlobals": false, "hoist": "functions", "allow": [] }]
   }
 }
