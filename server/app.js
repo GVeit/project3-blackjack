@@ -55,7 +55,7 @@ app.use(session({
     port: redisURL.port,
     pass: redisPASS,
   }),
-  secret: '',
+  secret: 'blackjack',
   resave: true,
   saveUninitialized: true,
   cookie: {
