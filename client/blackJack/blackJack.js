@@ -1,22 +1,58 @@
 // BLACKJACK WINDOW
 var userMoney = 0;
 let csrfToken;
-/*
+
 const BlackJackWindow = (props) => {
     return (
-        <div>It works!</div>
+        <div id="game-board">
+
+                <div id="dealer-cards"></div>
+
+                <br>
+
+                <div id="dealer-score"></div>
+
+                <br>
+
+                <div id="player-cards"></div>
+
+                <br>
+
+                <div id="player-score"></div>
+
+                <br>
+
+        </div>
+        <h2 id="message-board"></h2>
+        <div class="wrapperFunctions">
+                <input type='button' id='new-game-button' value='New Game' onclick='newGame();'/>
+                <input type='button' id='hit-button' value='Hit' onclick='hit();'/>
+                <input type='button' id='stand-button' value='Stand' onclick='stand();'/>
+
+                <div class="wrapperBet">
+                        <div id=player>
+                            Balance: $0
+                        </div>
+                        Bet: 
+                        <input type='number' id='bet' value='10' min='1' oninput="validity.valid||(value='');"/>
+                </div>
+        </div>
+
+        <br>
     );
 };
-*/
+
 // BLACKJACK WINDOW
-/*
+
 const createBlackJackWindow = (csrf) => {
     ReactDOM.render(
         <BlackJackWindow csrf={csrf} />,
         document.querySelector("#game")
     );
 };
-*/
+
+/* =+=+=+=+=+=+=+=+=+=+=+= */
+
 const getToken = () => {
     sendAjax('GET', '/getToken', null, (result) => {
       csrfToken = result.csrfToken;
