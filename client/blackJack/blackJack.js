@@ -3,24 +3,26 @@ var userMoney = 0;
 let csrfToken;
 
 const BlackJackWindow = (props) => {
-    return (
+    return (>
+            
+        <div id="game-Wrapper">
         <div id="game-board">
 
                 <div id="dealer-cards"></div>
 
-                <br>
+                <br/>
 
                 <div id="dealer-score"></div>
 
-                <br>
+                <br/>
 
                 <div id="player-cards"></div>
 
-                <br>
+                <br/>
 
                 <div id="player-score"></div>
 
-                <br>
+                <br/>
 
         </div>
         <h2 id="message-board"></h2>
@@ -37,8 +39,7 @@ const BlackJackWindow = (props) => {
                         <input type='number' id='bet' value='10' min='1' oninput="validity.valid||(value='');"/>
                 </div>
         </div>
-
-        <br>
+        </div>
     );
 };
 
