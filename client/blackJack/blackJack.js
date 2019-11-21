@@ -69,6 +69,7 @@ const getMoney = () =>{
     sendAjax('Get', '/getFunds', null, (result) => {
         userMoney = result.funds;
         player.money = userMoney;
+        console.dir(document.getElementById("player"));
         document.getElementById("player").innerHTML= "Balance: $" + userMoney;
     });
 }
@@ -89,7 +90,7 @@ $(document).ready(function() {
 
 const setup = function(csrf) {
     
-    //createBlackJackWindow(csrf);
+    createBlackJackWindow(csrf);
 
 };
 
