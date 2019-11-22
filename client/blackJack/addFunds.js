@@ -48,7 +48,7 @@ const AddFundsWindow = (props) => {
                     <img src="assets/img/amex.jpg" id="amex"></img>
                 </div>
                 <div className="form-group" id="pay-now">
-                    <button type="submit" className="btn btn-default" id="confirm-purchase" style={width: 100} onClick={getMoney}>Confirm</button>
+                    <button type="submit" className="btn btn-default" id="confirm-purchase" style={{width: 100 + "%"}} onClick={getMoney}>Confirm</button>
                 </div>
             </form>
         </div>
