@@ -50,7 +50,7 @@ const createBlackJackWindow = (csrf) => {
         <BlackJackWindow csrf={csrf} />,
         document.querySelector("#game")
     );
-    document.getElementById("player").innerHTML = "Your money: $" + player.money;
+    //document.getElementById("player").innerHTML = "Your money: $" + player.money;
 document.getElementById("hit-button").disabled = true;
 document.getElementById("stand-button").disabled = true;
     getMoney();
