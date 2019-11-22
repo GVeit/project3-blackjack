@@ -7,15 +7,15 @@ const addFundsWindow = (props) => {
             <form>
                 <div class="form-group owner">
                     <label for="owner">Owner</label>
-                    <input type="text" class="form-control" id="owner">
+                    <input type="text" class="form-control" id="owner"></input>
                 </div>
                 <div class="form-group CVV">
                     <label for="cvv">CVV</label>
-                    <input type="text" class="form-control" id="cvv">
+                    <input type="text" class="form-control" id="cvv"></input>
                 </div>
                 <div class="form-group" id="card-number-field">
                     <label for="cardNumber">Card Number</label>
-                    <input type="text" class="form-control" id="cardNumber">
+                    <input type="text" class="form-control" id="cardNumber"></input>
                 </div>
                 <div class="form-group" id="expiration-date">
                     <label>Expiration Date</label>
@@ -43,9 +43,9 @@ const addFundsWindow = (props) => {
                     </select>
                 </div>
                 <div class="form-group" id="credit_cards">
-                    <img src="assets/img/visa.jpg" id="visa">
-                    <img src="assets/img/mastercard.jpg" id="mastercard">
-                    <img src="assets/img/amex.jpg" id="amex">
+                    <img src="assets/img/visa.jpg" id="visa"></img>
+                    <img src="assets/img/mastercard.jpg" id="mastercard"></img>
+                    <img src="assets/img/amex.jpg" id="amex"></img>
                 </div>
                 <div class="form-group" id="pay-now">
                     <button type="submit" class="btn btn-default" id="confirm-purchase" style="width: 100%;">Confirm</button>
