@@ -1,7 +1,7 @@
 let csrfToken;
 
 // addFunds WINDOW
-const addFundsWindow = (props) => {
+const AddFundsWindow = (props) => {
     return (
         <div class="payment">
             <form>
@@ -107,7 +107,7 @@ const setup = function(csrf) {
 
     console.dir(document.querySelector("#reactCredit"));
     ReactDOM.render(
-        <addFundsWindow csrf={csrf} />,
+        <AddFundsWindow csrf={csrf} />,
         document.querySelector("#reactCredit")
     );
     console.dir(csrfToken);
