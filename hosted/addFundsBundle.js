@@ -12,7 +12,7 @@ var addFundsWindow = function addFundsWindow(props) {
 
 // addFunds WINDOW
 var createaddFundsWindow = function createaddFundsWindow(csrf) {
-    ReactDOM.render(React.createElement('addFundsWindow', { csrf: csrf }), document.querySelector("#game"));
+    ReactDOM.render(React.createElement('addFundsWindow', { csrf: csrf }), document.querySelector("#reactCredit"));
 };
 
 var getToken = function getToken() {
