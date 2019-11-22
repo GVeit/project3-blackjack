@@ -1,18 +1,175 @@
-'use strict';
+"use strict";
 
 var csrfToken = void 0;
 
 // addFunds WINDOW
 var addFundsWindow = function addFundsWindow(props) {
     return React.createElement(
-        'div',
-        null,
+        "div",
+        { "class": "payment" },
+        React.createElement(
+            "form",
+            null,
+            React.createElement(
+                "div",
+                { "class": "form-group owner" },
+                React.createElement(
+                    "label",
+                    { "for": "owner" },
+                    "Owner"
+                ),
+                React.createElement("input", { type: "text", "class": "form-control", id: "owner" })
+            ),
+            React.createElement(
+                "div",
+                { "class": "form-group CVV" },
+                React.createElement(
+                    "label",
+                    { "for": "cvv" },
+                    "CVV"
+                ),
+                React.createElement("input", { type: "text", "class": "form-control", id: "cvv" })
+            ),
+            React.createElement(
+                "div",
+                { "class": "form-group", id: "card-number-field" },
+                React.createElement(
+                    "label",
+                    { "for": "cardNumber" },
+                    "Card Number"
+                ),
+                React.createElement("input", { type: "text", "class": "form-control", id: "cardNumber" })
+            ),
+            React.createElement(
+                "div",
+                { "class": "form-group", id: "expiration-date" },
+                React.createElement(
+                    "label",
+                    null,
+                    "Expiration Date"
+                ),
+                React.createElement(
+                    "select",
+                    null,
+                    React.createElement(
+                        "option",
+                        { value: "01" },
+                        "January"
+                    ),
+                    React.createElement(
+                        "option",
+                        { value: "02" },
+                        "February "
+                    ),
+                    React.createElement(
+                        "option",
+                        { value: "03" },
+                        "March"
+                    ),
+                    React.createElement(
+                        "option",
+                        { value: "04" },
+                        "April"
+                    ),
+                    React.createElement(
+                        "option",
+                        { value: "05" },
+                        "May"
+                    ),
+                    React.createElement(
+                        "option",
+                        { value: "06" },
+                        "June"
+                    ),
+                    React.createElement(
+                        "option",
+                        { value: "07" },
+                        "July"
+                    ),
+                    React.createElement(
+                        "option",
+                        { value: "08" },
+                        "August"
+                    ),
+                    React.createElement(
+                        "option",
+                        { value: "09" },
+                        "September"
+                    ),
+                    React.createElement(
+                        "option",
+                        { value: "10" },
+                        "October"
+                    ),
+                    React.createElement(
+                        "option",
+                        { value: "11" },
+                        "November"
+                    ),
+                    React.createElement(
+                        "option",
+                        { value: "12" },
+                        "December"
+                    )
+                ),
+                React.createElement(
+                    "select",
+                    null,
+                    React.createElement(
+                        "option",
+                        { value: "16" },
+                        " 2019"
+                    ),
+                    React.createElement(
+                        "option",
+                        { value: "17" },
+                        " 2020"
+                    ),
+                    React.createElement(
+                        "option",
+                        { value: "18" },
+                        " 2021"
+                    ),
+                    React.createElement(
+                        "option",
+                        { value: "19" },
+                        " 2022"
+                    ),
+                    React.createElement(
+                        "option",
+                        { value: "20" },
+                        " 2023"
+                    ),
+                    React.createElement(
+                        "option",
+                        { value: "21" },
+                        " 2024"
+                    )
+                )
+            ),
+            React.createElement(
+                "div",
+                { "class": "form-group", id: "credit_cards" },
+                React.createElement("img", { src: "assets/img/visa.jpg", id: "visa" }),
+                React.createElement("img", { src: "assets/img/mastercard.jpg", id: "mastercard" }),
+                React.createElement("img", { src: "assets/img/amex.jpg", id: "amex" })
+            ),
+            React.createElement(
+                "div",
+                { "class": "form-group", id: "pay-now" },
+                React.createElement(
+                    "button",
+                    { type: "submit", "class": "btn btn-default", id: "confirm-purchase", style: "width: 100%;", onClick: getMoney },
+                    "Confirm"
+                )
+            )
+        )
     );
 };
 
 // addFunds WINDOW
 var createaddFundsWindow = function createaddFundsWindow(csrf) {
-    ReactDOM.render(React.createElement('addFundsWindow', { csrf: csrf }), document.querySelector("#reactCredit"));
+    ReactDOM.render(React.createElement("addFundsWindow", { csrf: csrf }), document.querySelector("#reactCredit"));
 };
 
 var getToken = function getToken() {
@@ -28,7 +185,7 @@ $(document).ready(function () {
 
 var getMoney = function getMoney(e) {
     e.preventDefault();
-    //console.dir('adding money');
+    console.dir('adding money');
     var fundField = document.querySelector("#credit").value;
 
     var xhr = new XMLHttpRequest();
@@ -41,37 +198,36 @@ var getMoney = function getMoney(e) {
         return handleResponse(xhr);
     };
 
-    var formData = 'fundField=' + fundField + '&_csrf=' + csrfToken;
-    
-    //console.dir(formData);
+    var formData = "fundField=" + fundField + "&_csrf=" + csrfToken;
+
+    console.dir(formData);
+
+    document.querySelector("#credit").value = "";
+    document.getElementById("addedFund").innerHTML = "Successfully added to balance";
 
     xhr.send(formData);
     return false;
 };
 
 var handleResponse = function handleResponse(xhr) {
-    //console.dir(xhr.response);
+    console.dir(xhr.response);
 };
-
 
 var setup = function setup(csrf) {
 
-    //console.dir(csrfToken);
-    document.getElementById("confirm-purchase").addEventListener("click", getMoney);
-
     createaddFundsWindow(csrf);
+    console.dir(csrfToken);
+    //document.getElementById("confirm-purchase").addEventListener("click", getMoney);
 };
-
-
 "use strict";
 
 var handleError = function handleError(message) {
     $("#errorMessage").text(message);
-    $("#loginMessage").animate({ width: 'toggle' }, 350);
+    $("#loginMessage").fadeIn({ width: 'toggle' }, 100);
 };
 
 var redirect = function redirect(response) {
-    $("#loginMessage").animate({ width: 'hide' }, 350);
+    $("#loginMessage").fadeIn({ width: 'hide' }, 100);
     window.location = response.redirect;
 };
 

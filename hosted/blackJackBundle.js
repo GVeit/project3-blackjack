@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 // BLACKJACK WINDOW
 var userMoney = 0;
@@ -6,15 +6,34 @@ var csrfToken = void 0;
 
 var BlackJackWindow = function BlackJackWindow(props) {
     return React.createElement(
-        'div',
-        null,
+        "div",
+        { id: "game-Wrapper" },
+        React.createElement(
+            "div",
+            { id: "game-board" },
+            React.createElement("div", { id: "dealer-cards" }),
+            React.createElement("br", null),
+            React.createElement("div", { id: "dealer-score" }),
+            React.createElement("br", null),
+            React.createElement("div", { id: "player-cards" }),
+            React.createElement("br", null),
+            React.createElement("div", { id: "player-score" }),
+            React.createElement("br", null)
+        )
     );
 };
 
 // BLACKJACK WINDOW
+
 var createBlackJackWindow = function createBlackJackWindow(csrf) {
     ReactDOM.render(React.createElement(BlackJackWindow, { csrf: csrf }), document.querySelector("#game"));
+    //document.getElementById("player").innerHTML = "Your money: $" + player.money;
+    document.getElementById("hit-button").disabled = true;
+    document.getElementById("stand-button").disabled = true;
+    getMoney();
 };
+
+/* =+=+=+=+=+=+=+=+=+=+=+= */
 
 var getToken = function getToken() {
     sendAjax('GET', '/getToken', null, function (result) {
@@ -27,14 +46,15 @@ var getMoney = function getMoney() {
     sendAjax('Get', '/getFunds', null, function (result) {
         userMoney = result.funds;
         player.money = userMoney;
+        console.dir(document.getElementById("player"));
         document.getElementById("player").innerHTML = "Balance: $" + userMoney;
     });
 };
 
 var sendMoney = function sendMoney(playerBet) {
-    //console.dir(playerBet);
+    console.dir(playerBet);
     sendAjax('POST', '/addFunds', { fundField: playerBet, _csrf: csrfToken }, function (result) {
-        //console.dir(result);
+        console.dir(result);
     });
 };
 
@@ -45,7 +65,6 @@ $(document).ready(function () {
 var setup = function setup(csrf) {
 
     createBlackJackWindow(csrf);
-    getMoney();
 };
 
 //document.getElementById("confirm-purchase").addEventListener("click", function(){
@@ -66,13 +85,6 @@ var dealer = {
     score: 0
 };
 var dealerHand = '';
-
-
-var playerBetChecker = 0;
-
-//document.getElementById("player").innerHTML = "Your money: $" + player.money;
-document.getElementById("hit-button").disabled = true;
-document.getElementById("stand-button").disabled = true;
 
 function getCard(x) {
     var valueArray = [];
@@ -149,7 +161,7 @@ function shuffle() {
 function bet(won) {
 
     var playerBet = document.getElementById("bet").valueAsNumber;
-    
+
     if (won === true) {
 
         player.money += playerBet;
@@ -165,83 +177,87 @@ function bet(won) {
 // reset the game
 function restartGame() {
 
-    playerBetChecker = document.getElementById("bet").valueAsNumber;
+    //document.getElementById("bet").disabled = true;        
     // restart everything 
     totalCardsPulled = 0;
     player.cards = [];
     dealer.cards = [];
     player.score = 0;
     dealer.score = 0;
-    
-    if (playerBetChecker > player.money) {
-        
-        document.getElementById("message-board").innerHTML = "You don't have sufficient fund to place a bet";
-        
-    } else if (playerBet <= player.money){
-        
-        beginGame();
-        shuffle();
 
-        document.getElementById("hit-button").disabled = true;
-        document.getElementById("stand-button").disabled = true;
-        document.getElementById("new-game-button").disabled = false;
-    }
+    beginGame();
+    shuffle();
 
+    document.getElementById("bet").disabled = false;
+    document.getElementById("hit-button").disabled = true;
+    document.getElementById("stand-button").disabled = true;
+    document.getElementById("new-game-button").disabled = false;
 }
 
 function endGame() {
     // if player has exact 21, player would auto win the game
-    if (player.score === 21) {
-        document.getElementById("message-board").innerHTML = "You win! You got blackjack.";
-        bet(true);
-        document.getElementById("player").innerHTML = "Balance: $" + player.money;
-        restartGame();
-    }
-    // if player went over 21, player would lose
-    if (player.score > 21) {
-        document.getElementById("message-board").innerHTML = "You went over 21! The dealer wins";
-        bet(false);
-        document.getElementById("player").innerHTML = "Balance: $" + player.money;
-        restartGame();
-    }
-    // if dealer has exact 21, it would win 
-    if (dealer.score === 21) {
-        document.getElementById("message-board").innerHTML = "You lost. Dealer got blackjack";
-        bet(false);
-        document.getElementById("player").innerHTML = "Balance: $" + player.money;
-        restartGame();
-    }
-    // if dealer went over 21, dealer would lose
-    if (dealer.score > 21) {
-        document.getElementById("message-board").innerHTML = "Dealer went over 21! You win!";
-        bet(true);
-        document.getElementById("player").innerHTML = "Balance: $" + player.money;
-        restartGame();
-    }
-    // if dealer has 17 scores and still less than player's current scores, it would lose
-    if (dealer.score >= 17 && player.score > dealer.score && player.score < 21) {
-        document.getElementById("message-board").innerHTML = "You win! You beat the dealer.";
-        bet(true);
-        document.getElementById("player").innerHTML = "Balance: $" + player.money;
-        restartGame();
-    }
-    // if dealer has 17 scores and greater than player's current scores, it would win
-    if (dealer.score >= 17 && player.score < dealer.score && dealer.score < 21) {
-        document.getElementById("message-board").innerHTML = "You lost. Dealer had the higher score.";
-        bet(false);
-        document.getElementById("player").innerHTML = "Balance: $" + player.money;
-        restartGame();
-    }
-    // if both player and dealer have same scores, it would be tie
-    if (dealer.score >= 17 && player.score === dealer.score && dealer.score < 21) {
-        document.getElementById("message-board").innerHTML = "You tied! ";
-        restartGame();
-    }
-    if (player.money <= 0) {
-        document.getElementById("new-game-button").disabled = true;
-        document.getElementById("hit-button").disabled = true;
-        document.getElementById("stand-button").disabled = true;
-        document.getElementById("message-board").innerHTML = "You lost!" + "<br>" + "You are out of money";
+
+    var playerBet = document.getElementById("bet").valueAsNumber;
+
+    if (playerBet > player.money) {
+        document.getElementById("message-board").innerHTML = "You do not have sufficient fund to make a bet";
+    } else {
+
+        document.getElementById("bet").disabled = true;
+
+        if (player.score === 21) {
+            document.getElementById("message-board").innerHTML = "You win! You got blackjack! Place a new bet";
+            bet(true);
+            document.getElementById("player").innerHTML = "Your money: $" + player.money;
+            restartGame();
+        }
+        // if player went over 21, player would lose
+        if (player.score > 21) {
+            document.getElementById("message-board").innerHTML = "You went over 21! The dealer wins. Place a new bet";
+            bet(false);
+            document.getElementById("player").innerHTML = "Your money: $" + player.money;
+            restartGame();
+        }
+        // if dealer has exact 21, it would win 
+        if (dealer.score === 21) {
+            document.getElementById("message-board").innerHTML = "You lost. Dealer got blackjack. Place a new bet";
+            bet(false);
+            document.getElementById("player").innerHTML = "Your money: $" + player.money;
+            restartGame();
+        }
+        // if dealer went over 21, dealer would lose
+        if (dealer.score > 21) {
+            document.getElementById("message-board").innerHTML = "Dealer went over 21! You win! Place a new bet";
+            bet(true);
+            document.getElementById("player").innerHTML = "Your money: $" + player.money;
+            restartGame();
+        }
+        // if dealer has 17 scores and still less than player's current scores, it would lose
+        if (dealer.score >= 17 && player.score > dealer.score && player.score < 21) {
+            document.getElementById("message-board").innerHTML = "You win! You beat the dealer. Place a new bet";
+            bet(true);
+            document.getElementById("player").innerHTML = "Your money: $" + player.money;
+            restartGame();
+        }
+        // if dealer has 17 scores and greater than player's current scores, it would win
+        if (dealer.score >= 17 && player.score < dealer.score && dealer.score < 21) {
+            document.getElementById("message-board").innerHTML = "You lost. Dealer had the higher score. Place a new bet";
+            bet(false);
+            document.getElementById("player").innerHTML = "Your money: $" + player.money;
+            restartGame();
+        }
+        // if both player and dealer have same scores, it would be tie
+        if (dealer.score >= 17 && player.score === dealer.score && dealer.score < 21) {
+            document.getElementById("message-board").innerHTML = "You tied! Place a new bet.";
+            restartGame();
+        }
+        if (player.money <= 0) {
+            document.getElementById("new-game-button").disabled = true;
+            document.getElementById("bet").disabled = true;
+            document.getElementById("hit-button").disabled = true;
+            document.getElementById("stand-button").disabled = true;
+            document.getElementById("message-board").innerHTML = "You lost!" + "<br>" + "You are out of money";
+        }
     }
 }
 
@@ -257,16 +273,16 @@ function dealerDraw() {
 
     if (suit == 'hearts') {
         icon = '&hearts;';
-        //console.log("&hearts" + valueOfCard);
+        console.log("&hearts" + valueOfCard);
     } else if (suit == 'spades') {
         icon = '&spades;';
-        //console.log("&spades" + valueOfCard);
+        console.log("&spades" + valueOfCard);
     } else if (suit == 'diamonds') {
         icon = '&diams;';
-        //console.log("Diamonds" + valueOfCard);
+        console.log("Diamonds" + valueOfCard);
     } else {
         icon = '&clubs;';
-        //console.log("Clubs" + valueOfCard);
+        console.log("Clubs" + valueOfCard);
     }
     document.getElementById("dealer-cards").innerHTML = dealerHand + '<div>' + valueOfCard + '<br/>' + icon + '</div>';
     dealerHand = dealerHand + '<div>' + valueOfCard + '<br/>' + icon + '</div>';
@@ -279,10 +295,15 @@ function dealerDraw() {
 
 function newGame() {
 
-    // reset everything
-    dealerHand = '';
-    playerHand = '';
-    
+    var playerBet = document.getElementById("bet").valueAsNumber;
+
+    if (playerBet > player.money) {
+        document.getElementById("message-board").innerHTML = "You do not have sufficient fund to make a bet";
+    } else {
+        // reset everything
+        dealerHand = '';
+        playerHand = '';
+
         document.getElementById("new-game-button").disabled = true;
         document.getElementById("hit-button").disabled = false;
         document.getElementById("stand-button").disabled = false;
@@ -291,8 +312,7 @@ function newGame() {
         hit();
         dealerDraw();
         endGame();
-    
-
+    }
 }
 
 function hit() {
@@ -306,16 +326,16 @@ function hit() {
 
     if (suit == 'hearts') {
         icon = '&hearts;';
-        //console.log("Hearts" + valueOfCard);
+        console.log("Hearts" + valueOfCard);
     } else if (suit == 'spades') {
         icon = '&spades;';
-        //console.log("Spades" + valueOfCard);
+        console.log("Spades" + valueOfCard);
     } else if (suit == 'diamonds') {
         icon = '&diams;';
-        //console.log("Diamonds" + valueOfCard);
+        console.log("Diamonds" + valueOfCard);
     } else {
         icon = '&clubs;';
-        //console.log("Clubs" + valueOfCard);
+        console.log("Clubs" + valueOfCard);
     }
 
     document.getElementById("player-cards").innerHTML = playerHand + '<div>' + valueOfCard + '<br/>' + icon + '</div>';
@@ -340,11 +360,11 @@ function stand() {
 
 var handleError = function handleError(message) {
     $("#errorMessage").text(message);
-    $("#loginMessage").animate({ width: 'toggle' }, 350);
+    $("#loginMessage").fadeIn({ width: 'toggle' }, 100);
 };
 
 var redirect = function redirect(response) {
-    $("#loginMessage").animate({ width: 'hide' }, 350);
+    $("#loginMessage").fadeIn({ width: 'hide' }, 100);
     window.location = response.redirect;
 };
 

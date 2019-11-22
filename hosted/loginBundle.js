@@ -3,14 +3,14 @@
 var handleLogin = function handleLogin(e) {
     e.preventDefault();
 
-    $("#loginMessage").fadeTo({ width: 'hide' }, 100);
+    $("#loginMessage").fadeIn({ width: 'hide' }, 100);
 
     if ($("#user").val() == '' || $("#pass").val() == '') {
         handleError("Username or password is empty");
         return false;
     }
 
-    //console.log($("input[name=_csrf]").val());
+    console.log($("input[name=_csrf]").val());
 
     sendAjax('POST', $("#loginForm").attr("action"), $("#loginForm").serialize(), redirect);
 
@@ -20,7 +20,7 @@ var handleLogin = function handleLogin(e) {
 var handleSignup = function handleSignup(e) {
     e.preventDefault();
 
-    $("#loginMessage").fadeTo({ width: 'hide' }, 100);
+    $("#loginMessage").fadeIn({ width: 'hide' }, 100);
 
     if ($("#user").val() == '' || $("#pass").val() == '' || $("pass2").val() == '') {
         handleError("All fields are required");
@@ -136,11 +136,11 @@ $(document).ready(function () {
 
 var handleError = function handleError(message) {
     $("#errorMessage").text(message);
-    $("#loginMessage").fadeTo({ width: 'toggle' }, 100);
+    $("#loginMessage").fadeIn({ width: 'toggle' }, 100);
 };
 
 var redirect = function redirect(response) {
-    $("#loginMessage").fadeTo({ width: 'hide' }, 100);
+    $("#loginMessage").fadeIn({ width: 'hide' }, 100);
     window.location = response.redirect;
 };
 
