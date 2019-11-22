@@ -48,7 +48,7 @@ const addFundsWindow = (props) => {
                     <img src="assets/img/amex.jpg" id="amex"></img>
                 </div>
                 <div class="form-group" id="pay-now">
-                    <button type="submit" class="btn btn-default" id="confirm-purchase" style="width: 100%;">Confirm</button>
+                    <button type="submit" class="btn btn-default" id="confirm-purchase" style="width: 100%;" onClick={getMoney}>Confirm</button>
                 </div>
             </form>
         </div>
@@ -107,5 +107,5 @@ const setup = function(csrf) {
 
     createaddFundsWindow(csrf);
     console.dir(csrfToken);
-    document.getElementById("confirm-purchase").addEventListener("click", getMoney);
+    //document.getElementById("confirm-purchase").addEventListener("click", getMoney);
 };
