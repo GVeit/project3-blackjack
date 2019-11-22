@@ -105,9 +105,7 @@ const handleResponse = (xhr) => {
 
 const setup = function(csrf) {
 
-  console.dir(csrfToken);
-    document.getElementById("confirm-purchase").addEventListener("click", getMoney);
-
     createaddFundsWindow(csrf);
-
+    console.dir(csrfToken);
+    document.getElementById("confirm-purchase").addEventListener("click", getMoney);
 };
