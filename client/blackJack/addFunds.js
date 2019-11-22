@@ -74,12 +74,6 @@ const getToken = () => {
 $(document).ready(function() {
     getToken();
 });
-const setup = function(csrf) {
-    
-    createaddFundsWindow(csrf);
-
-};
-
 
 const getMoney = (e) =>{
     e.preventDefault();
