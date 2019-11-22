@@ -5,19 +5,19 @@ const AddFundsWindow = (props) => {
     return (
         <div class="payment">
             <form>
-                <div class="form-group owner">
-                    <label for="owner">Owner</label>
-                    <input type="text" class="form-control" id="owner"></input>
+                <div className="form-group owner">
+                    <label htmlFor="owner">Owner</label>
+                    <input type="text" className="form-control" id="owner"></input>
                 </div>
-                <div class="form-group CVV">
-                    <label for="cvv">CVV</label>
-                    <input type="text" class="form-control" id="cvv"></input>
+                <div className="form-group CVV">
+                    <label htmlFor="cvv">CVV</label>
+                    <input type="text" className="form-control" id="cvv"></input>
                 </div>
-                <div class="form-group" id="card-number-field">
-                    <label for="cardNumber">Card Number</label>
-                    <input type="text" class="form-control" id="cardNumber"></input>
+                <div className="form-group" id="card-number-field">
+                    <label htmlFor="cardNumber">Card Number</label>
+                    <input type="text" className="form-control" id="cardNumber"></input>
                 </div>
-                <div class="form-group" id="expiration-date">
+                <div className="form-group" id="expiration-date">
                     <label>Expiration Date</label>
                     <select>
                         <option value="01">January</option>
@@ -42,13 +42,13 @@ const AddFundsWindow = (props) => {
                         <option value="21"> 2024</option>
                     </select>
                 </div>
-                <div class="form-group" id="credit_cards">
+                <div className="form-group" id="credit_cards">
                     <img src="assets/img/visa.jpg" id="visa"></img>
                     <img src="assets/img/mastercard.jpg" id="mastercard"></img>
                     <img src="assets/img/amex.jpg" id="amex"></img>
                 </div>
-                <div class="form-group" id="pay-now">
-                    <button type="submit" class="btn btn-default" id="confirm-purchase" style="width: 100%;" onClick={getMoney}>Confirm</button>
+                <div className="form-group" id="pay-now">
+                    <button type="submit" className="btn btn-default" id="confirm-purchase" style={width: 100} onClick={getMoney}>Confirm</button>
                 </div>
             </form>
         </div>
