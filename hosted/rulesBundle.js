@@ -6,8 +6,6 @@ var RulesWindow = function RulesWindow(props) {
     return React.createElement(
         "div",
         { id: "rules-wrapper" },
-        React.createElement(
-        )
     );
 };
 
