@@ -13,6 +13,7 @@ const router = (app) => {
   app.get('/getFunds', controllers.Account.getFunds);
   app.get('/blackJack', controllers.Account.blackJack);
   app.get('/rules', controllers.Account.rules);
+  app.get('/account', controllers.Account.account);
   app.get('/', controllers.Account.loginPage);
 };
 

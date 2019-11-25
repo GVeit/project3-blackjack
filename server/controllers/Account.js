@@ -83,6 +83,10 @@ const rules = (req, res) => {
     res.render('rules');
 };
 
+const account = (req, res) => {
+    res.render('account');
+};
+
 const signup = (request, response) => {
   const req = request;
   const res = response;
@@ -149,6 +153,7 @@ module.exports.getFunds = getFunds;
 module.exports.addFunds = addFunds;
 module.exports.blackJack = blackJack;
 module.exports.rules = rules;
+module.exports.account = account;
 module.exports.signupPage = signupPage;
 module.exports.signup = signup;
 module.exports.getToken = getToken;
