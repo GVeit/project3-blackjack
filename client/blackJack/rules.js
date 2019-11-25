@@ -6,7 +6,7 @@ const RulesWindow = (props) => {
 
         <h1>Basic Blackjack Rules</h1>
         
-        <ul style="list-style-type:disc;">
+        <ul style={list-style-type: disc}>
               <li>The main goal of blackjack is to beat the dealer hand without going over 21.</li>
               <li>Face cards are worth 10. Aces are worth 1 or 11, whichever makes a better hand.</li>
               <li>Each player starts with two cards, one of the dealer cards is hidden until the end.</li>
