@@ -1,5 +1,5 @@
 
-const rulesWindow = (props) => {
+const RulesWindow = (props) => {
     return (
             
     <div id="rulesWrapper">
@@ -25,7 +25,7 @@ const rulesWindow = (props) => {
 
 const createRulesWindow = (csrf) => {
     ReactDOM.render(
-        <rulesWindow csrf={csrf} />,
+        <RulesWindow csrf={csrf} />,
         document.querySelector("#rules-wrapper")
     );
 };
