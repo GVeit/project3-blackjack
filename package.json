@@ -13,11 +13,12 @@
     "buildBlackJackBundle": "babel ./client/blackJack/blackJack.js ./client/helper --presets react --out-file ./hosted/blackJackBundle.js",
     "buildFundsBundle": "babel ./client/blackJack/addFunds.js ./client/helper --presets react --out-file ./hosted/addFundsBundle.js",
     "buildRulesBundle": "babel ./client/blackJack/rules.js ./client/helper --presets react --out-file ./hosted/rulesBundle.js",
+    "buildAccountBundle": "babel ./client/blackJack/account.js ./client/helper --presets react --out-file ./hosted/accountBundle.js",
     "nodemon": "nodemon --watch ./server ./server/app.js",
     "start": "node ./server/app.js",
     "pretest": "eslint ./server --fix",
     "test": "echo \"Tests complete\"",
-     "build": "npm run buildLoginBundle && npm run buildAppBundle && npm run buildBlackJackBundle && npm run buildFundsBundle && npm run buildRulesBundle",
+     "build": "npm run buildLoginBundle && npm run buildAppBundle && npm run buildBlackJackBundle && npm run buildFundsBundle && npm run buildRulesBundle && npm run accountBundle",
     "watchLoginBundle": "babel --watch ./client/login ./client/helper --presets react --out-file ./hosted/loginBundle.js",
     "watchAppBundle": "babel --watch ./client/app ./client/helper --presets react --out-file ./hosted/bundle.js"
   },
