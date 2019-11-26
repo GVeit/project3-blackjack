@@ -15,7 +15,7 @@ const AccountWindow = (props) => {
 const createAccountWindow = (csrf) => {
     ReactDOM.render(
         <AccountWindow csrf={csrf} />,
-        document.querySelector("#account-wrapper")
+        document.querySelector("#stat-wrapper")
     );
 };
 
