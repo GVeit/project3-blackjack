@@ -3,8 +3,17 @@ let csrfToken;
 const AccountWindow = (props) => {
     return (
             
+        <div id="statWrapper">
         
-    
+            <h1>Statistics</h1>
+
+            <div id="winningTotal">Won Total: 0</div>
+
+            <div id="bjTotal">Blackjack Total: 0</div>
+
+            <div id="moneyTotal">Won: $0</div>
+        
+        </div>
     );
 };
 
