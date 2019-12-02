@@ -3,11 +3,7 @@ let csrfToken;
 const AccountWindow = (props) => {
     return (
             
-    <div id="rulesWrapper">
-
-        <h1>It works</h1>
         
-    </div>
     
     );
 };

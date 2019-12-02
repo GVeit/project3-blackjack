@@ -380,3 +380,15 @@ nav:nth-child(1) {
     font-family: 'Montserrat', sans-serif;
     font-size: 18px;
 }
+
+
+#stat-wrapper{
+    max-width: 700px;
+    margin: 100px auto;
+    overflow: hidden;
+    padding: 25px;
+    color: #fff;
+    background: linear-gradient(212deg, rgba(67,206,162,1) 0%, rgba(10,185,92,1) 100%);
+    height: auto;
+    border-radius: 14px;
+}
