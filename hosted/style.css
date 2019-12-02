@@ -391,4 +391,11 @@ nav:nth-child(1) {
     background: linear-gradient(212deg, rgba(67,206,162,1) 0%, rgba(10,185,92,1) 100%);
     height: auto;
     border-radius: 14px;
+    text-align: center;
+}
+
+
+#stat-wrapper h1{
+    text-align: center;
+    font-family: 'Open Sans', sans-serif;
 }
