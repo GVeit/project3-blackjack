@@ -9,30 +9,45 @@ const saltLength = 64;
 const keyLength = 64;
 
 const AccountSchema = new mongoose.Schema({
-  username: {
-    type: String,
-    required: true,
-    trim: true,
-    unique: true,
-    match: /^[A-Za-z0-9_\-.]{1,16}$/,
-  },
-  salt: {
-    type: Buffer,
-    required: true,
-  },
-  password: {
-    type: String,
-    required: true,
-  },
-  createdDate: {
-    type: Date,
-    default: Date.now,
-  },
-  fund: {
-      type: Number,
-      required: true,
-      default: 0
-  }
+      username: {
+        type: String,
+        required: true,
+        trim: true,
+        unique: true,
+        match: /^[A-Za-z0-9_\-.]{1,16}$/,
+      },
+      salt: {
+        type: Buffer,
+        required: true,
+      },
+      password: {
+        type: String,
+        required: true,
+      },
+      createdDate: {
+        type: Date,
+        default: Date.now,
+      },
+      fund: {
+          type: Number,
+          required: true,
+          default: 0
+      },
+    wonTotal: {
+        type: Number,
+        required: true,
+        default: 0
+    },
+    bjTotal: {
+        type: Number,
+        required: true,
+        default: 0
+    },
+    wonMoneyTotal: {
+        type: Number,
+        required: true,
+        default: 0
+    }
 });
 
 AccountSchema.statics.toAPI = doc => ({

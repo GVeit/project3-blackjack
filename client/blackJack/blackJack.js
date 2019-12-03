@@ -85,6 +85,9 @@ const setup = function(csrf) {
 //document.getElementById("confirm-purchase").addEventListener("click", function(){
 //  document.getElementById("credit").innerHTML = userMoney;
 //});
+var wonTotal = 0;
+var bjTotal = 0;
+var wonMoneyTotal = 0;
 
 var totalCardsPulled = 0;
 var deckArray = [];
@@ -239,6 +242,10 @@ function endGame() {
             document.getElementById("message-board").innerHTML = "You win! You got blackjack! Place a new bet";
             bet(true);
             document.getElementById("player").innerHTML = "Your money: $" + player.money;
+            //update stats
+            bjTotal += 1;
+            wonTotal += 1;
+            wonMoneyTotal += player.money;
             restartGame();
         }
         // if player went over 21, player would lose
@@ -260,6 +267,9 @@ function endGame() {
             document.getElementById("message-board").innerHTML = "Dealer went over 21! You win! Place a new bet";
             bet(true);
             document.getElementById("player").innerHTML = "Your money: $" + player.money;
+            //update stats
+            wonTotal += 1;
+            wonMoneyTotal += player.money;
             restartGame();
         }
         // if dealer has 17 scores and still less than player's current scores, it would lose
@@ -267,6 +277,9 @@ function endGame() {
             document.getElementById("message-board").innerHTML = "You win! You beat the dealer. Place a new bet";
             bet(true);
             document.getElementById("player").innerHTML = "Your money: $" + player.money;
+            //update stats
+            wonTotal += 1;
+            wonMoneyTotal += player.money;
             restartGame();
         }
         // if dealer has 17 scores and greater than player's current scores, it would win

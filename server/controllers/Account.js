@@ -87,6 +87,11 @@ const account = (req, res) => {
     res.render('account');
 };
 
+const nav = (req, res) => {
+    res.render('nav');
+};
+
+
 const signup = (request, response) => {
   const req = request;
   const res = response;
@@ -153,6 +158,7 @@ module.exports.getFunds = getFunds;
 module.exports.addFunds = addFunds;
 module.exports.blackJack = blackJack;
 module.exports.rules = rules;
+module.exports.nav = nav;
 module.exports.account = account;
 module.exports.signupPage = signupPage;
 module.exports.signup = signup;

@@ -38,6 +38,14 @@ const requiresRules = (req, res, next) => {
   return next();
 };
 
+const requiresNav = (req, res, next) => {
+  if (req.session.account) {
+    return res.redirect('/nav');
+  }
+
+  return next();
+};
+
 const requiresAccount = (req, res, next) => {
   if (req.session.account) {
     return res.redirect('/account');
@@ -61,7 +69,7 @@ module.exports.requiresLogin = requiresLogin;
 module.exports.requiresLogout = requiresLogout;
 module.exports.requiresaddFunds = requiresaddFunds;
 module.exports.requiresblackJack = requiresblackJack;
-module.exports.requiresRules = requiresRules;
+module.exports.requiresNav = requiresNav;
 module.exports.requiresAccount = requiresAccount;
 
 if (process.env.NODE_ENV === 'production') {
