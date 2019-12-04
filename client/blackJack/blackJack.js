@@ -85,7 +85,7 @@ const sendBjTotal = (playerBet) => {
 
 const sendWonTotal = (playerBet) => {
   console.dir(playerBet);
-    sendAjax('POST', '/wonTotal', {fundField: playerBet, _csrf: csrfToken}, (result) => {
+    sendAjax('GET', '/ncreaseWonTotal', {fundField: playerBet, _csrf: csrfToken}, (result) => {
             console.dir(result);
         });
 }
@@ -265,8 +265,8 @@ function endGame() {
             //update stats
 
             //add bj score to stat
-            sendBjTotal(1);
-            sendWonTotal(1);
+            sendBjTotal();
+            sendWonTotal();
             
             restartGame();
         }
@@ -290,7 +290,7 @@ function endGame() {
             bet(true);
             document.getElementById("player").innerHTML = "Your money: $" + player.money;
             //update stats
-            sendWonTotal(1);
+            sendWonTotal();
             restartGame();
         }
         // if dealer has 17 scores and still less than player's current scores, it would lose
@@ -299,7 +299,7 @@ function endGame() {
             bet(true);
             document.getElementById("player").innerHTML = "Your money: $" + player.money;
             //update stats
-            sendWonTotal(1);
+            sendWonTotal();
             restartGame();
         }
         // if dealer has 17 scores and greater than player's current scores, it would win

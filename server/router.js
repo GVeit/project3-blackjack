@@ -15,6 +15,8 @@ const router = (app) => {
   app.get('/rules', controllers.Account.rules);
   app.get('/nav', controllers.Account.nav);
   app.get('/account', controllers.Account.account);
+  app.get('/wonTotal', controllers.Account.wonTotal);
+  app.get('/increaseWonTotal', controllers.Account.increaseWonTotal);
   app.get('/', controllers.Account.loginPage);
 };
 

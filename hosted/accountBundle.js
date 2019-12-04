@@ -65,7 +65,7 @@ var getBjTotal = function getBjTotal() {
     });
 }
 
-var getwonTotal = function getMoney() {
+var getWonTotal = function getWonTotal() {
     sendAjax('Get', '/moneyTotal', null, function (result) {
         userMoney = result.funds;
         player.money = userMoney;

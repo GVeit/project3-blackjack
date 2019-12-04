@@ -52,6 +52,41 @@ const getFunds = (req, res) => {
     });
 };
 
+const getWonTotal = (req, res) => {
+    Account.AccountModel.findByUsername(req.session.account.username, (err, doc) =>{
+        res.json({wonTotal: doc.wonTotal});
+    });
+};
+
+const increaseWonTotal = (req, res) =>{
+    
+    console.dir('increase');
+    //grab the current account from mongo
+    Account.AccountModel.findByUsername(req.session.account.username, (err, doc) => {
+        let account = doc;
+      
+      //console.dir(req.body.fundField);
+     // console.dir(parseFloat(req.body.fundField));
+        
+        account.wonTotal += 1;
+        
+        
+        // change the name ****************************************
+        let saveMoney = account.save();
+        
+        saveMoney.then(() => {
+        console.dir("success");
+           res.json({message: 'success'}); 
+        });
+        
+        saveMoney.catch((err) => {
+            res.json({err});
+        });
+    });
+
+    
+};
+
 const blackJack = (req, res) => {
   res.render('blackJack');
 };
@@ -163,4 +198,6 @@ module.exports.account = account;
 module.exports.signupPage = signupPage;
 module.exports.signup = signup;
 module.exports.getToken = getToken;
+module.exports.wonTotal = getWonTotal;
+module.exports.increaseWonTotal = increaseWonTotal;
 module.exports.increaseMoney = increaseMoney;
