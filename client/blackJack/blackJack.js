@@ -78,13 +78,13 @@ const sendMoneyTotal = (playerBet) => {
 
 const sendBjTotal = (playerBet) => {
   console.dir(playerBet);
-    sendAjax('POST', '/bjTotal', {fundField: playerBet, _csrf: csrfToken}, (result) => {
+    sendAjax('GET', '/increaseBjTotal', null, (result) => {
             console.dir(result);
         });
 }
 
 const sendWonTotal = (playerBet) => {
-  console.dir(playerBet);
+  //console.dir(playerBet);
     sendAjax('GET', '/increaseWonTotal', null, (result) => {
             console.dir(result);
         });

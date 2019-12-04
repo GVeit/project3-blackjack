@@ -23,6 +23,7 @@ const createAccountWindow = (csrf) => {
         document.querySelector("#stat-wrapper")
     );
     getWonTotal();
+    getBjTotal();
 };
 
 /* =+=+=+=+=+=+=+=+=+=+=+= */
@@ -49,8 +50,15 @@ const setup = function(csrf) {
 const getWonTotal = () =>{
     sendAjax('Get', '/wonTotal', null, (result) => {
         let userWonTotal = result.wonTotal;
-        console.dir(document.getElementById("player"));
+        //console.dir(document.getElementById("player"));
         document.getElementById("wonTotal").innerHTML= "Won Total: " + userWonTotal;
     });
 }
 
+const getBjTotal = () =>{
+    sendAjax('Get', '/bjTotal', null, (result) => {
+        let userBjTotal = result.bjTotal;
+        //console.dir(document.getElementById("player"));
+        document.getElementById("bjTotal").innerHTML= "Blackjack Total: " + userBjTotal;
+    });
+}

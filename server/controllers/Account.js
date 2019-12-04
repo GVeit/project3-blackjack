@@ -72,14 +72,49 @@ const increaseWonTotal = (req, res) =>{
         
         
         // change the name ****************************************
-        let saveMoney = account.save();
+        let save = account.save();
         
-        saveMoney.then(() => {
+        save.then(() => {
         console.dir("success");
            res.json({message: 'success'}); 
         });
         
-        saveMoney.catch((err) => {
+        save.catch((err) => {
+            res.json({err});
+        });
+    });
+
+    
+};
+
+const getBjTotal = (req, res) => {
+    Account.AccountModel.findByUsername(req.session.account.username, (err, doc) =>{
+        res.json({bjTotal: doc.bjTotal});
+    });
+};
+
+const increaseBjTotal = (req, res) =>{
+    
+    console.dir('increase');
+    //grab the current account from mongo
+    Account.AccountModel.findByUsername(req.session.account.username, (err, doc) => {
+        let account = doc;
+      
+      //console.dir(req.body.fundField);
+     // console.dir(parseFloat(req.body.fundField));
+        
+        account.bjTotal += 1;
+        
+        
+        // change the name ****************************************
+        let save = account.save();
+        
+        save.then(() => {
+        console.dir("success");
+           res.json({message: 'success'}); 
+        });
+        
+        save.catch((err) => {
             res.json({err});
         });
     });
@@ -200,4 +235,6 @@ module.exports.signup = signup;
 module.exports.getToken = getToken;
 module.exports.wonTotal = getWonTotal;
 module.exports.increaseWonTotal = increaseWonTotal;
+module.exports.bjTotal = getBjTotal;
+module.exports.increaseBjTotal = increaseBjTotal;
 module.exports.increaseMoney = increaseMoney;
