@@ -7,7 +7,7 @@ const AccountWindow = (props) => {
         
             <h1>Statistics</h1>
 
-            <div id="winningTotal">Won Total: 0</div>
+            <div id="wonTotal">Won Total: 0</div>
 
             <div id="bjTotal">Blackjack Total: 0</div>
 
@@ -22,6 +22,7 @@ const createAccountWindow = (csrf) => {
         <AccountWindow csrf={csrf} />,
         document.querySelector("#stat-wrapper")
     );
+    getWonTotal();
 };
 
 /* =+=+=+=+=+=+=+=+=+=+=+= */
@@ -49,7 +50,7 @@ const getWonTotal = () =>{
     sendAjax('Get', '/wonTotal', null, (result) => {
         let userWonTotal = result.wonTotal;
         console.dir(document.getElementById("player"));
-        document.getElementById("winningTotal").innerHTML= "Won Total: " + userWonTotal;
+        document.getElementById("wonTotal").innerHTML= "Won Total: " + userWonTotal;
     });
 }
 
