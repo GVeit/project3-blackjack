@@ -219,6 +219,7 @@ var setup = function setup(csrf) {
     console.dir(csrfToken);
     //document.getElementById("confirm-purchase").addEventListener("click", getMoney);
 };
+
 "use strict";
 
 var handleError = function handleError(message) {

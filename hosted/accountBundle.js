@@ -47,3 +47,29 @@ var sendAjax = function sendAjax(type, action, data, success) {
         }
     });
 };
+
+var getMoneyTotal = function getMoneyTotal() {
+    sendAjax('Get', '/wonTotal', null, function (result) {
+        moneyTotal = result.funds;
+        console.dir(document.getElementById("winningTotal"));
+        document.getElementById("winningTotal").innerHTML = "Won: " + moneyTotal;
+    });
+}
+
+
+var getBjTotal = function getBjTotal() {
+    sendAjax('Get', '/bjTotal', null, function (result) {
+        blackTotal = 
+        console.dir(document.getElementById("bjTotal"));
+        document.getElementById("bjTotal").innerHTML = "Blackjack Total: " + moneyTotal;
+    });
+}
+
+var getwonTotal = function getMoney() {
+    sendAjax('Get', '/moneyTotal', null, function (result) {
+        userMoney = result.funds;
+        player.money = userMoney;
+        console.dir(document.getElementById("moneyTotal"));
+        document.getElementById("player").innerHTML = "Balance: $" + userMoney;
+    });
+};

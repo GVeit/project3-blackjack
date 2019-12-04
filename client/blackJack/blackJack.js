@@ -69,6 +69,27 @@ const sendMoney = (playerBet) => {
         });
 }
 
+const sendMoneyTotal = (playerBet) => {
+  console.dir(playerBet);
+    sendAjax('POST', '/moneyTotal', {fundField: playerBet, _csrf: csrfToken}, (result) => {
+            console.dir(result);
+        });
+}
+
+const sendBjTotal = (playerBet) => {
+  console.dir(playerBet);
+    sendAjax('POST', '/bjTotal', {fundField: playerBet, _csrf: csrfToken}, (result) => {
+            console.dir(result);
+        });
+}
+
+const sendWonTotal = (playerBet) => {
+  console.dir(playerBet);
+    sendAjax('POST', '/wonTotal', {fundField: playerBet, _csrf: csrfToken}, (result) => {
+            console.dir(result);
+        });
+}
+
 $(document).ready(function() {
     getToken();
 });
@@ -85,9 +106,6 @@ const setup = function(csrf) {
 //document.getElementById("confirm-purchase").addEventListener("click", function(){
 //  document.getElementById("credit").innerHTML = userMoney;
 //});
-var wonTotal = 0;
-var bjTotal = 0;
-var wonMoneyTotal = 0;
 
 var totalCardsPulled = 0;
 var deckArray = [];
@@ -195,6 +213,8 @@ function bet(won) {
 
         player.money += playerBet;
         sendMoney(playerBet);
+        //send money total to stat
+        sendMoneyTotal(playerBet);
     }
     if (won === false) {
 
@@ -243,9 +263,11 @@ function endGame() {
             bet(true);
             document.getElementById("player").innerHTML = "Your money: $" + player.money;
             //update stats
-            bjTotal += 1;
-            wonTotal += 1;
-            wonMoneyTotal += player.money;
+
+            //add bj score to stat
+            sendBjTotal(1);
+            sendWonTotal(1);
+            
             restartGame();
         }
         // if player went over 21, player would lose
@@ -268,8 +290,7 @@ function endGame() {
             bet(true);
             document.getElementById("player").innerHTML = "Your money: $" + player.money;
             //update stats
-            wonTotal += 1;
-            wonMoneyTotal += player.money;
+            sendWonTotal(1);
             restartGame();
         }
         // if dealer has 17 scores and still less than player's current scores, it would lose
@@ -278,8 +299,7 @@ function endGame() {
             bet(true);
             document.getElementById("player").innerHTML = "Your money: $" + player.money;
             //update stats
-            wonTotal += 1;
-            wonMoneyTotal += player.money;
+            sendWonTotal(1);
             restartGame();
         }
         // if dealer has 17 scores and greater than player's current scores, it would win
