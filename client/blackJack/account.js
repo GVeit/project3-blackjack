@@ -62,3 +62,11 @@ const getBjTotal = () =>{
         document.getElementById("bjTotal").innerHTML= "Blackjack Total: " + userBjTotal;
     });
 }
+
+const getMoneyTotal = () =>{
+    sendAjax('Get', '/moneyTotal', null, (result) => {
+        let userMoneyTotal = result.moneyTotal;
+        //console.dir(document.getElementById("player"));
+        document.getElementById("wonTotal").innerHTML= "Won: " + userMoneyTotal;
+    });
+}

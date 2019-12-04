@@ -122,6 +122,42 @@ const increaseBjTotal = (req, res) =>{
     
 };
 
+
+const getMoneyTotal = (req, res) => {
+    Account.AccountModel.findByUsername(req.session.account.username, (err, doc) =>{
+        res.json({moneyTotal: doc.moneyTotal});
+    });
+};
+
+const increaseMoneyTotal = (req, res) =>{
+    
+    console.dir('increase');
+    //grab the current account from mongo
+    Account.AccountModel.findByUsername(req.session.account.username, (err, doc) => {
+        let account = doc;
+      
+      //console.dir(req.body.fundField);
+     // console.dir(parseFloat(req.body.fundField));
+        
+        account.bjTotal += 10;
+        
+        
+        // change the name ****************************************
+        let save = account.save();
+        
+        save.then(() => {
+        console.dir("success");
+           res.json({message: 'success'}); 
+        });
+        
+        save.catch((err) => {
+            res.json({err});
+        });
+    });
+
+    
+};
+
 const blackJack = (req, res) => {
   res.render('blackJack');
 };
@@ -237,4 +273,6 @@ module.exports.wonTotal = getWonTotal;
 module.exports.increaseWonTotal = increaseWonTotal;
 module.exports.bjTotal = getBjTotal;
 module.exports.increaseBjTotal = increaseBjTotal;
+module.exports.moneyTotal = getMoneyTotal;
+module.exports.increaseMoneyTotal = increaseMoneyTotal;
 module.exports.increaseMoney = increaseMoney;
