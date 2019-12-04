@@ -45,3 +45,11 @@ const setup = function(csrf) {
 };
 
 
+const getWonTotal = () =>{
+    sendAjax('Get', '/wonTotal', null, (result) => {
+        let userWonTotal = result.wonTotal;
+        console.dir(document.getElementById("player"));
+        document.getElementById("winningTotal").innerHTML= "Won Total: " + userWonTotal;
+    });
+}
+
