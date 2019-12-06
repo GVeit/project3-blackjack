@@ -56,7 +56,7 @@ const getWonTotal = () =>{
     sendAjax('Get', '/wonTotal', null, (result) => {
         let userWonTotal = result.wonTotal;
         //console.dir(document.getElementById("player"));
-        document.getElementById("wonTotal").innerHTML= "<b>Won Total: </b><span id="greenFont">" + userWonTotal + "</span>";
+        document.getElementById("wonTotal").innerHTML= "<b>Won Total: </b>" + userWonTotal;
     });
 }
 
