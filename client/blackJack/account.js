@@ -7,11 +7,15 @@ const AccountWindow = (props) => {
         
             <h1>Statistics</h1>
 
-            <div id="wonTotal">Won Total: 0</div>
+            <div id="infoWrapper">
+        
+                <div id="wonTotal">Won Total: 0</div>
 
-            <div id="bjTotal">Blackjack Total: 0</div>
+                <div id="bjTotal">Blackjack Total: 0</div>
 
-            <div id="moneyTotal">Won: $0</div>
+                <div id="moneyTotal">Won: $0</div>
+            
+            </div>
         
         </div>
     );
