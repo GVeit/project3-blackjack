@@ -405,14 +405,20 @@ nav:nth-child(1) {
 }
 
 #wonTotal {
-   color:#00f074;
+    color:#00f074;
+    padding: 15px;
+
 }
 
 #bjTotal {
-   color:#00f074;
+    color:#00f074;
+    padding: 15px;
+
 }
 
 #moneyTotal {
-   color:#00f074;
+    color:#00f074;
+    padding: 15px;
+
 }
 
