@@ -28,6 +28,7 @@ const createAccountWindow = (csrf) => {
     );
     getWonTotal();
     getBjTotal();
+    getMoneyTotal();
 };
 
 /* =+=+=+=+=+=+=+=+=+=+=+= */
