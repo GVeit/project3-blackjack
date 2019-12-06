@@ -70,6 +70,6 @@ var getWonTotal = function getWonTotal() {
         userMoney = result.funds;
         player.money = userMoney;
         console.dir(document.getElementById("moneyTotal"));
-        document.getElementById("player").innerHTML = "Balance: $" + userMoney;
+        document.getElementById("moneyTotal").innerHTML = "Balance: $" + userMoney;
     });
 };
