@@ -123,7 +123,7 @@ const increaseBjTotal = (req, res) =>{
 
 const getMoneyTotal = (req, res) => {
     Account.AccountModel.findByUsername(req.session.account.username, (err, doc) =>{
-        res.json({moneyTotal: doc.moneyTotal});
+        res.json({wonMoneyTotal: doc.wonMoneyTotal});
     });
 };
 
@@ -272,6 +272,6 @@ module.exports.wonTotal = getWonTotal;
 module.exports.increaseWonTotal = increaseWonTotal;
 module.exports.bjTotal = getBjTotal;
 module.exports.increaseBjTotal = increaseBjTotal;
-module.exports.moneyTotal = getMoneyTotal;
+module.exports.wonMoneyTotal = getMoneyTotal;
 module.exports.increaseMoneyTotal = increaseMoneyTotal;
 module.exports.increaseMoney = increaseMoney;
