@@ -388,7 +388,7 @@ nav:nth-child(1) {
     overflow: hidden;
     padding: 25px;
     color: #fff;
-    background: linear-gradient(212deg, rgba(67,206,162,1) 0%, rgba(10,185,92,1) 100%);
+    background: #041e35;
     height: auto;
     border-radius: 14px;
     text-align: center;
@@ -414,4 +414,8 @@ nav:nth-child(1) {
 
 #moneyTotal {
     
+}
+
+#greenFont{
+    color:#00f074;
 }
