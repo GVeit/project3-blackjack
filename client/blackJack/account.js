@@ -56,7 +56,7 @@ const getWonTotal = () =>{
     sendAjax('Get', '/wonTotal', null, (result) => {
         let userWonTotal = result.wonTotal;
         //console.dir(document.getElementById("player"));
-        document.getElementById("wonTotal").innerHTML= "Won Total: " + userWonTotal;
+        document.getElementById("wonTotal").innerHTML= "<b>Won Total: </b>" + userWonTotal;
     });
 }
 
@@ -72,6 +72,6 @@ const getMoneyTotal = () =>{
     sendAjax('Get', '/moneyTotal', null, (result) => {
         let userMoneyTotal = result.wonMoneyTotal;
         //console.dir(document.getElementById("player"));
-        document.getElementById("moneyTotal").innerHTML= "Won: $" + userMoneyTotal;
+        document.getElementById("moneyTotal").innerHTML= "<b>Won: </b>$" + userMoneyTotal;
     });
 }
