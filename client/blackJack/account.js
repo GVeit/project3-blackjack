@@ -70,8 +70,8 @@ const getBjTotal = () =>{
 
 const getMoneyTotal = () =>{
     sendAjax('Get', '/moneyTotal', null, (result) => {
-        let userMoneyTotal = result.moneyTotal;
+        let userMoneyTotal = result.wonMoneyTotal;
         //console.dir(document.getElementById("player"));
-        document.getElementById("wonTotal").innerHTML= "Won: $" + userMoneyTotal;
+        document.getElementById("moneyTotal").innerHTML= "Won: $" + userMoneyTotal;
     });
 }
