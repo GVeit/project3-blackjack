@@ -272,6 +272,6 @@ module.exports.wonTotal = getWonTotal;
 module.exports.increaseWonTotal = increaseWonTotal;
 module.exports.bjTotal = getBjTotal;
 module.exports.increaseBjTotal = increaseBjTotal;
-module.exports.wonMoneyTotal = getMoneyTotal;
+module.exports.moneyTotal = getMoneyTotal;
 module.exports.increaseMoneyTotal = increaseMoneyTotal;
 module.exports.increaseMoney = increaseMoney;
