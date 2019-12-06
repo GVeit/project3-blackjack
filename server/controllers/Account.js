@@ -71,7 +71,6 @@ const increaseWonTotal = (req, res) =>{
         account.wonTotal += 1;
         
         
-        // change the name ****************************************
         let save = account.save();
         
         save.then(() => {
@@ -105,8 +104,7 @@ const increaseBjTotal = (req, res) =>{
         
         account.bjTotal += 1;
         
-        
-        // change the name ****************************************
+
         let save = account.save();
         
         save.then(() => {
@@ -139,10 +137,11 @@ const increaseMoneyTotal = (req, res) =>{
       //console.dir(req.body.fundField);
      // console.dir(parseFloat(req.body.fundField));
         
+        
+        //////////////////////////////
         account.bjTotal += 10;
+        /////////////////////////////
         
-        
-        // change the name ****************************************
         let save = account.save();
         
         save.then(() => {
