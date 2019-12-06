@@ -71,7 +71,7 @@ const sendMoney = (playerBet) => {
 
 const sendMoneyTotal = (playerBet) => {
   console.dir(playerBet);
-    sendAjax('GET', '/moneyTotal', {fundField: playerBet, _csrf: csrfToken}, (result) => {
+    sendAjax('GET', '/increaseMoneyTotal', {fundField: playerBet, _csrf: csrfToken}, (result) => {
             console.dir(result);
         });
 }
@@ -209,12 +209,13 @@ function bet(won) {
 
     var playerBet = document.getElementById("bet").valueAsNumber;
 
+
     if (won === true) {
 
         player.money += playerBet;
         sendMoney(playerBet);
         //send money total to stat
-        sendMoneyTotal();
+        sendMoneyTotal(playerBet);
     }
     if (won === false) {
 
