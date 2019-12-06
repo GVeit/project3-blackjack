@@ -139,7 +139,7 @@ const increaseMoneyTotal = (req, res) =>{
         
         
         //////////////////////////////
-        account.moneyTotal += 10;
+        account.wonMoneyTotal += 10;
         /////////////////////////////
         
         let save = account.save();
