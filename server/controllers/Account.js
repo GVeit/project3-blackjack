@@ -99,6 +99,7 @@ const increaseBjTotal = (req, res) =>{
     Account.AccountModel.findByUsername(req.session.account.username, (err, doc) => {
         let account = doc;
       
+
         account.bjTotal += 1;
         
 
@@ -131,8 +132,9 @@ const increaseMoneyTotal = (req, res) =>{
     Account.AccountModel.findByUsername(req.session.account.username, (err, doc) => {
         let account = doc;
       
-        
+
         account.wonMoneyTotal += parseInt(req.query.fundField);
+
         
         let save = account.save();
         
