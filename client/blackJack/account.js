@@ -55,7 +55,7 @@ const setup = function(csrf) {
 const getWonTotal = () =>{
     sendAjax('Get', '/wonTotal', null, (result) => {
         let userWonTotal = result.wonTotal;
-        document.getElementById("wonTotal").innerHTML= "<b>Game Won Total </b>" + userWonTotal;
+        document.getElementById("wonTotal").innerHTML= "<b>Game Won Total: </b>" + userWonTotal;
     });
 }
 
