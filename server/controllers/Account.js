@@ -133,7 +133,7 @@ const increaseMoneyTotal = (req, res) =>{
         let account = doc;
       
 
-        account.wonMoneyTotal += parseInt(string, req.query.fundField);
+        account.wonMoneyTotal += parseInt(req.query.fundField, 10);
 
         
         let save = account.save();
