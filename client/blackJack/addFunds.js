@@ -55,14 +55,6 @@ const AddFundsWindow = (props) => {
     );
 };
 
-// addFunds WINDOW
-//const createaddFundsWindow = (csrf) => {
-//    ReactDOM.render(
-//        <addFundsWindow csrf={csrf} />,
-//        document.querySelector("#reactCredit")
-//    );
-//};
-
 const getToken = () => {
     sendAjax('GET', '/getToken', null, (result) => {
         csrfToken = result.csrfToken;
