@@ -9,11 +9,11 @@ const AccountWindow = (props) => {
 
             <div id="infoWrapper">
         
-                <div id="wonTotal">Won Total: 0</div>
+                <div id="wonTotal">Game Won Total: 0</div>
 
                 <div id="bjTotal">Blackjack Total: 0</div>
 
-                <div id="moneyTotal">Won: $0</div>
+                <div id="moneyTotal">Money Won Total: $0</div>
             
             </div>
         
@@ -55,15 +55,13 @@ const setup = function(csrf) {
 const getWonTotal = () =>{
     sendAjax('Get', '/wonTotal', null, (result) => {
         let userWonTotal = result.wonTotal;
-        //console.dir(document.getElementById("player"));
-        document.getElementById("wonTotal").innerHTML= "<b>Won Total: </b>" + userWonTotal;
+        document.getElementById("wonTotal").innerHTML= "<b>Game Won Total </b>" + userWonTotal;
     });
 }
 
 const getBjTotal = () =>{
     sendAjax('Get', '/bjTotal', null, (result) => {
         let userBjTotal = result.bjTotal;
-        //console.dir(document.getElementById("player"));
         document.getElementById("bjTotal").innerHTML= "<b>Blackjack Total: </b>" + userBjTotal;
     });
 }
@@ -71,7 +69,6 @@ const getBjTotal = () =>{
 const getMoneyTotal = () =>{
     sendAjax('Get', '/moneyTotal', null, (result) => {
         let userMoneyTotal = result.wonMoneyTotal;
-        //console.dir(document.getElementById("player"));
-        document.getElementById("moneyTotal").innerHTML= "<b>Won: </b>$" + userMoneyTotal;
+        document.getElementById("moneyTotal").innerHTML= "<b>Money Won Total: </b>$" + userMoneyTotal;
     });
 }
